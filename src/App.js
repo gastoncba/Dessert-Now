@@ -1,13 +1,17 @@
-import './App.css';
+import React from 'react';
+import './App.css'; 
+import NavBar from './components/NavBar/NavBar'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Bienividos a Dessert Now!</h1>
-      <h3>Servicio de Delivery de Postres!</h3>
-      <p>Mira nuestro catalogo , pedilo y esta en un casa ahora!</p>
+class App extends React.Component {
+  render() {
+    return(
+    <div>
+      <NavBar></NavBar>
+      <ItemListContainer greeting={'Hola! Bienvenidos a dessert now!'}></ItemListContainer>
     </div>
-  );
+    )
+  }
 }
 
 export default App;
