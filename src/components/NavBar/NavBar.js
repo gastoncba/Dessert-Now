@@ -1,22 +1,40 @@
-import React from 'react'
+import React , {useEffect, useState}from 'react'
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
 import CartWidget from '../CartWidget/CartWidget'
-import './NavBar.css'
+import { NavLink, Link } from 'react-router-dom';
+import './NavBar.css';
 
-function navBar() {
+function NavBar() {
+    
+    const [categorias , setCategorias] = useState([]);
+
+    useEffect(() => { fetch('https://mocki.io/v1/663b0bfd-8f0d-4a1f-9eae-c0f063e472f5')
+                       .then(response => response.json())
+                       .then(res => setCategorias(res))
+    }, []);
+
     return (
-        <Navbar collapseOnSelect expand="lg" bg="danger" variant="dark">
-            <Navbar.Brand href="#home">Dessert NOW!
+        <Navbar className="menu" collapseOnSelect expand="lg" variant="dark">
+            <Link to={`/`}>
+            <Navbar.Brand className='brand' style={{fontSize:'250%'}}>Dessert NOW!
             <CartWidget></CartWidget>
             </Navbar.Brand>
+            </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                 <Nav.Link href="#features">hace tu pedido</Nav.Link>
-                <NavDropdown title="Nuestro catalogo " id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Tortas</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Helados</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Postres</NavDropdown.Item>
+                <NavDropdown title="Categoria" id="collasible-nav-dropdown">
+
+                {categorias.map(cat => {
+                    return(
+                    <NavDropdown.Item>
+                    <NavLink to={"/category/"+cat.id} style={{ textDecoration: 'none', color: 'black'}}>
+                        {cat.name}
+                        </NavLink>
+                    </NavDropdown.Item>
+                    )
+                })}
                 </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
@@ -24,4 +42,4 @@ function navBar() {
     )
 }
 
-export default navBar
+export default NavBar

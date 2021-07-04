@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import { Button, IconButton} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import './ItemCount.css';
+
 
 function ItemCount({stock, initial}) {
 
@@ -30,17 +32,17 @@ function ItemCount({stock, initial}) {
 
     return (
         <div>
-            <h4>{init}</h4>
+            <h4>Cantidad: {init}</h4>
             <h6>{aviso}</h6>
-            <Button onClick={onAdd} variant="contained" color="secondary">
-            Agregar al carrito 
-            </Button>
             <IconButton onClick={agregar} color="primary" aria-label="add to shopping cart">
             <AddIcon></AddIcon>
             </IconButton>
             <IconButton onClick={quitar} color="primary" aria-label="add to shopping cart">
             <RemoveIcon></RemoveIcon>
-            </IconButton>
+            </IconButton><br></br>
+            <Button className="agregar-carrito" onClick={onAdd} variant="contained" color="secondary">
+            Agregar al carrito 
+            </Button>
         </div>
     )
 }

@@ -1,18 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react';
 import ItemList from '../ItemList/ItemList';
+import './ItemListContainer.css';
 
-function ItemListContainer(props) {
+function ItemListContainer({match}) {
+
+    let numCategoria = match.params.id
 
     const [items, setItems] = useState([]);
 
-    fetch('https://mocki.io/v1/3cbc514f-ca50-48c3-a479-4419aab27c05')
-    .then(response => response.json())
-    .then(res => setItems(res))
+    useEffect( () => {
+        fetch('https://mocki.io/v1/c1daec2b-e6d6-4459-9a8e-16ef5e98a0ec')
+        .then(response => response.json())
+        .then(res => setItems(res))
+    }, [])
 
     return (
         <div> 
-            <h1>{props.greeting}</h1>
-            <ItemList items={items}></ItemList>
+            <h1 className='titulo-principal'>Bienvenidos a Dessert NOW!</h1>
+              <ItemList items={items} category={numCategoria}></ItemList>
         </div>   
     )
 }
