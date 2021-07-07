@@ -16,7 +16,6 @@ function ItemDetail({item}) {
         else {
             setAviso('Ya esta en su carrito!')
         }
-        
     } 
     
     const [carrito, setCarrito, addItem] = useContext(CardContext); 
