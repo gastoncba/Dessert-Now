@@ -8,25 +8,19 @@ export const CardContext = createContext();
 export const CardProvider = (props) => {
 
     //funciones 
+
     function isInCart(id) {
 
-        for (let i = 0; i < carrito.length; i++) {
-            let item = carrito[i];
-            if(item.item.item.id === id) {
-                return true;
-            }
-    }
-
-    return false; 
+       let index = carrito.findIndex(item => item.item.id === id);
+       return index !== -1;
 }
     
     function addItem(item, quantity) {
 
         if(!isInCart(item.id)) {
-            let nuevoPostre = {item:{item}, quantity};
+            let nuevoPostre = {item, quantity};
             carrito.push(nuevoPostre);
             setCarrito(carrito);
-            console.log(carrito);
             return true;
         }
 
@@ -36,7 +30,7 @@ export const CardProvider = (props) => {
     const [carrito, setCarrito] = useState([]);
 
     return (
-		<CardContext.Provider value={[carrito, setCarrito, addItem]}>
+		<CardContext.Provider value={[carrito, setCarrito ,addItem]}>
 			{props.children}
 		</CardContext.Provider>
 	);
