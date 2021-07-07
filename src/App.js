@@ -8,11 +8,14 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './views/ItemDetailContainer/ItemDetailContainer';
 // REACT-ROUTER-DOM
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+//importamos el provider 
+import {CardProvider} from './CardContext';
 
 class App extends React.Component {
   render() {
     return(
-    <Router>
+    <CardProvider>
+      <Router>
       <NavBar></NavBar>
       <Switch>
         <Route path='/' exact component={ItemListContainer}></Route>
@@ -20,6 +23,7 @@ class App extends React.Component {
         <Route path='/item/:id' exact component={ItemDetailContainer}></Route>
       </Switch>
     </Router>
+    </CardProvider>
     )
   }
 }
