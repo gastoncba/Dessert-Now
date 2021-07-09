@@ -4,6 +4,7 @@ import './App.css';
 //componentes
 import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import ItemDetail from './views/ItemDetail/ItemDetail';
 //vistas 
 import ItemDetailContainer from './views/ItemDetailContainer/ItemDetailContainer';
 // REACT-ROUTER-DOM
@@ -15,12 +16,13 @@ class App extends React.Component {
   render() {
     return(
     <CardProvider>
-      <Router>
+    <Router>
       <NavBar></NavBar>
       <Switch>
         <Route path='/' exact component={ItemListContainer}></Route>
         <Route path='/category/:id' exact component={ItemListContainer}></Route>
         <Route path='/item/:id' exact component={ItemDetailContainer}></Route>
+        <Route path='/cart' exact component={ItemDetail}></Route>
       </Switch>
     </Router>
     </CardProvider>

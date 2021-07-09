@@ -32,7 +32,7 @@ function ItemCount({stock, initial, onAdd, disponible}) {
             <RemoveIcon></RemoveIcon>
             </IconButton><br></br>
             <Button onClick={() => {onAdd(init)}} className="agregar-carrito" variant="contained" color="secondary" disabled={disponible}>
-                Comprar
+                Agregar al carrito
             </Button>
         </div>
     )

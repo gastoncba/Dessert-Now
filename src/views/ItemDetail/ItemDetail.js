@@ -4,23 +4,19 @@ import {Button} from '@material-ui/core';
 import './ItemDetail.css'
 import 'semantic-ui-css/semantic.min.css'
 import ItemCount from '../../components/ItemCount/ItemCount'
-
+import { Link } from 'react-router-dom';
 
 function ItemDetail({item}) {
-
-    function onAdd(quantityToAdd) {
-
-        if(addItem(item, quantityToAdd)) {
-            setAviso('Se agrego a su carrito')
-        }
-        else {
-            setAviso('Ya esta en su carrito!')
-        }
-    } 
     
-    const [carrito, setCarrito, addItem] = useContext(CardContext); 
+    const {addItem} = useContext(CardContext); 
     const [aviso, setAviso] = useState('');
     const [terminar, setTerminar] = useState(false);
+
+    function onAdd(quantityToAdd) {
+        addItem(item, quantityToAdd); 
+        setAviso('En tu carrito');
+        setTerminar(true);
+    }
 
     return (
         <div className='item-detail'>
@@ -38,13 +34,15 @@ function ItemDetail({item}) {
                     <p>{item.description}</p>
                 </div>
                 <div class="description">
-                    <p>{`Precio: $${item.price}`}</p>
+                    <b><p>{`Precio: $${item.price}`}</p></b>
                 </div>
                 <ItemCount stock={item.stock} initial={1} onAdd={onAdd}></ItemCount>
                 {terminar && (
-                    <Button variant="contained" color="secondary">
-                    Terminar compra
-                    </Button>
+                    <Link to={`/cart}`} style={{ textDecoration: 'none' }}>
+                        <Button variant="contained" color="secondary">
+                        Terminar compra
+                        </Button>
+                    </Link>
                 )}
                 <p>{aviso}</p>
                 </div>
