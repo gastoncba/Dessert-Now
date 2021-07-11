@@ -1,20 +1,12 @@
-import React , {useEffect, useState}from 'react'
+import React from 'react'
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
 import CartWidget from '../CartWidget/CartWidget'
 import { NavLink, Link } from 'react-router-dom';
 import './NavBar.css';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 function NavBar() {
     
-    /**
-     * const [categorias , setCategorias] = useState([]);
-
-    useEffect(() => { fetch('https://mocki.io/v1/663b0bfd-8f0d-4a1f-9eae-c0f063e472f5')
-                       .then(response => response.json())
-                       .then(res => setCategorias(res))
-    }, []);
-     */
-
     return (
         <Navbar className="menu" collapseOnSelect expand="lg" variant="dark">
             <Link to={`/`}>
@@ -45,6 +37,10 @@ function NavBar() {
                         </NavLink>
                     </NavDropdown.Item>
                 </NavDropdown>
+                </Nav>
+                <Nav>
+                    <ShoppingCartIcon style={{color:'white', fontSize:'300%'}}>
+                    </ShoppingCartIcon>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

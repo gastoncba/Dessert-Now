@@ -14,17 +14,17 @@ export default function ItemList({items, category}) {
                 if(seElegioCategoria(category)) {
                     if(item.category === category) {
                         return(
-                            <div key={item.id}>
-                                <Item item={item}></Item>
-                            </div>
-                        )
+                    <div key={item.id}>
+                        <Item item={item}></Item>
+                    </div>
+                )
                     }
                 }
                 else {
                     return(
-                        <div key={item.id}>
-                            <Item item={item}></Item>
-                        </div>
+                    <div key={item.id}>
+                        <Item item={item}></Item>
+                    </div>
                     )
                 }
             })}

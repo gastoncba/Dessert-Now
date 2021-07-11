@@ -12,15 +12,14 @@ function ItemListContainer({match}) {
         const productos = [];
         db.collection('products').onSnapshot((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-            productos.push({...doc.data(), id: doc.id})
+                productos.push({...doc.data(), id: doc.id})
+            });
+            setItems(productos)
         });
-        setItems(productos)
-    });
-};
+    };
 
     useEffect(()=>{
         getItems();
-        console.log("Los productos son : ", items)
     }, []);
 
     return (
