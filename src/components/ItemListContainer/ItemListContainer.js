@@ -1,24 +1,32 @@
 import React, {useState, useEffect} from 'react';
-import { ItemGroup } from 'semantic-ui-react';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
+import {db} from '../../firebase';
 
 function ItemListContainer({match}) {
 
-    let numCategoria = match.params.id;
-
+    let nombreCateoria  = match.params.id
     const [items, setItems] = useState([]);
 
-    useEffect(() => {
-        fetch('https://mocki.io/v1/c1daec2b-e6d6-4459-9a8e-16ef5e98a0ec')
-        .then(response => response.json())
-        .then(res => setItems(res))
-    }, [])
-    
+    const getItems = () => {
+        const productos = [];
+        db.collection('products').onSnapshot((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+            productos.push({...doc.data(), id: doc.id})
+        });
+        setItems(productos)
+    });
+};
+
+    useEffect(()=>{
+        getItems();
+        console.log("Los productos son : ", items)
+    }, []);
+
     return (
         <div> 
             <h1 className='titulo-principal'>Bienvenidos a Dessert NOW!</h1>
-              <ItemList items={items} category={numCategoria}></ItemList>
+            <ItemList items={items} category={nombreCateoria}></ItemList>
         </div>   
     )
 }
