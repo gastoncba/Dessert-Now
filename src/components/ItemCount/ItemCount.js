@@ -24,13 +24,15 @@ function ItemCount({stock, initial, onAdd, disponible}) {
 
     return (
         <div>
-            <h4>Cantidad: {init}</h4>
-            <IconButton onClick={agregar} color="primary" aria-label="add to shopping cart">
-            <AddIcon></AddIcon>
-            </IconButton>
-            <IconButton onClick={quitar} color="primary" aria-label="add to shopping cart">
-            <RemoveIcon></RemoveIcon>
-            </IconButton><br></br>
+            <div className={'conteiner-count'}>
+                <h4>Cantidad: {init}</h4>
+                <IconButton onClick={agregar} color="primary" aria-label="add to shopping cart">
+                <AddIcon></AddIcon>
+                </IconButton>
+                <IconButton onClick={quitar} color="primary" aria-label="add to shopping cart">
+                <RemoveIcon></RemoveIcon>
+                </IconButton>
+            </div>
             <Button onClick={() => {onAdd(init)}} className="agregar-carrito" variant="contained" color="secondary" disabled={disponible}>
                 Agregar al carrito
             </Button>

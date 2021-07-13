@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react'
 import { CardContext } from '../../CardContext';
 import {Button} from '@material-ui/core';
+import {Card} from 'react-bootstrap'
 import './ItemDetail.css'
 import 'semantic-ui-css/semantic.min.css'
 import ItemCount from '../../components/ItemCount/ItemCount'
@@ -22,7 +23,7 @@ function ItemDetail({item}) {
         <div className='item-detail'>
         <div class="ui items">
             <div class="item">
-                <div class="image">
+                <div class="ui large image">
                     <img src={item.img}/>
                 </div>
                 <div class="content">
@@ -38,7 +39,7 @@ function ItemDetail({item}) {
                 </div>
                 <ItemCount stock={item.stock} initial={1} onAdd={onAdd}></ItemCount>
                 {terminar && (
-                    <Link to={`/cart}`} style={{ textDecoration: 'none' }}>
+                    <Link to={`/cart`} style={{ textDecoration: 'none' }}>
                         <Button variant="contained" color="secondary">
                         Terminar compra
                         </Button>

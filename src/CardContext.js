@@ -7,9 +7,10 @@ export const CardContext = createContext();
 //2 - Creamos el provider 
 export const CardProvider = ({children}) => {
 
-    const [carrito, setCarrito] = React.useState([]);
+    const [carrito, setCarrito] = useState([]);
+    const [cantItems, setCantItems] = useState(0);
 
-    //funciones 
+    //funciones relacionadas con el carrito de compras
 
     //Verificar si el producto esta en el carrito 
     function isInCart(id) {
@@ -18,10 +19,7 @@ export const CardProvider = ({children}) => {
     //Agregar el producto al carrito
     function addItem(item, quantity) {
         
-        if(!isInCart(item.id)) {
-            setCarrito([...carrito, {...item, quantity}]);           
-        }
-        else {
+        if(isInCart(item.id)) {
             const nuevoCarrito = carrito.map(itemCarrito => {
                 if(itemCarrito.id === item.id) {
                     return {...itemCarrito, quantity: itemCarrito.quantity + quantity}
@@ -30,13 +28,33 @@ export const CardProvider = ({children}) => {
                     return itemCarrito;
                 }
             })
-            
-            setCarrito(nuevoCarrito);
+            setCarrito(nuevoCarrito);          
+        }
+        else {
+            setCarrito([...carrito, {...item, quantity}]);
         }
     }
 
+    function resetCant() {
+        let cant = 0;
+        carrito.forEach(item => {
+            cant += item.quantity;
+        })
+        return cant
+    }
+
+    function total() {
+        let total = 0;
+        carrito.forEach(item => {
+            total += item.quantity*item.price;
+        });
+
+        return total;
+    }
+
+
     return (
-		<CardContext.Provider value={{carrito, setCarrito, addItem}}>
+		<CardContext.Provider value={{carrito, setCarrito, addItem, resetCant, total}}>
 			{children}
 		</CardContext.Provider>
 	);

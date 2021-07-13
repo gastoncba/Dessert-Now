@@ -1,11 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 .menu {
-    margin-bottom: 3%;
-    background-color: #e91e63 !important;
+    margin-bottom: 5%;
 }
 
-.brand {
-    font-family: 'Bebas Neue', cursive;
-    font-style: italic;
+.link-conteiner {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    text-decoration: none;
+    color: white;
 }
+.link-conteiner:hover {
+    color: white;
+}
+
+.group-menu {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.categoria {
+    color: white;
+    text-transform: lowercase;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 120%;
+}
+
+
