@@ -1,26 +1,24 @@
 import React, {useState, useEffect} from 'react';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
-import {db} from '../../firebase';
+import {itemsCollection} from '../../firebase';
 
 function ItemListContainer({match}) {
 
-    let nombreCateoria  = match.params.id
+    const nombreCateoria  = match.params.id
     const [items, setItems] = useState([]);
 
     const getItems = () => {
-        const productos = [];
-        db.collection('products').onSnapshot((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                productos.push({...doc.data(), id: doc.id})
-            });
-            setItems(productos)
+        let productos = itemsCollection;
+        if(nombreCateoria) productos = itemsCollection.where('category','==', nombreCateoria);
+        productos.get().then((querySnapshot) => {
+            setItems(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
         });
     };
 
     useEffect(()=>{
         getItems();
-    }, []);
+    }, [nombreCateoria]);
 
     return (
         <div> 

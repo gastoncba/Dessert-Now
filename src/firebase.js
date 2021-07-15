@@ -10,6 +10,6 @@ var firebaseConfig = {
   appId: "1:8933082954:web:795d050e5c37cde43963b3"
 };
 
-const fb = firebase.initializeApp(firebaseConfig);
+const app = !firebase.apps.length? firebase.initializeApp(firebaseConfig): firebase.app()
 
-export const db = fb.firestore(); //El metodo firestore nos permite trabajar con la base de datos.
+export const itemsCollection = firebase.firestore(app).collection('products'); //El metodo firestore nos permite trabajar con la base de datos.

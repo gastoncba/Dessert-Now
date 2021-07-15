@@ -1,22 +1,17 @@
 import React , { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
-import {db} from '../../firebase';
+import {itemsCollection} from '../../firebase';
 
-function ItemDetailContainer({ match }) {
+function ItemDetailContainer({match}) {
 
-    let ID = match.params.id;
-    const [producto , setProducto] = useState([]);
+    const ID = match.params.id;
+    const [producto , setProducto] = useState({});
 
     const getItem = () => {
-        const productos = [];
-        db.collection('products').onSnapshot((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                productos.push({...doc.data(), id: doc.id})
-
-            })
-            //buscamos el que tiene el ID buscado
-            const productoConID = productos.find(item => item.id === ID);
-            setProducto(productoConID);
+       
+        const productoDeID = itemsCollection.doc(ID);
+        productoDeID.get().then((doc) => {
+            setProducto({...doc.data(), id: doc.id})
         })
     }
 

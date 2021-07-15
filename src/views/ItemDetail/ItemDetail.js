@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react'
 import { CardContext } from '../../CardContext';
 import {Button} from '@material-ui/core';
-import {Card} from 'react-bootstrap'
 import './ItemDetail.css'
 import 'semantic-ui-css/semantic.min.css'
 import ItemCount from '../../components/ItemCount/ItemCount'
@@ -9,9 +8,10 @@ import { Link } from 'react-router-dom';
 
 function ItemDetail({item}) {
     
-    const {addItem} = useContext(CardContext); 
+    const {addItem, getStock} = useContext(CardContext); 
     const [aviso, setAviso] = useState('');
     const [terminar, setTerminar] = useState(false);
+    const stock = getStock(item);
 
     function onAdd(quantityToAdd) {
         addItem(item, quantityToAdd); 
@@ -29,7 +29,7 @@ function ItemDetail({item}) {
                 <div class="content">
                 <p class="header">{item.name}</p>
                 <div class="meta">
-                    <span>Description</span>
+                    <span>Detalle</span>
                 </div>
                 <div class="description">
                     <p>{item.description}</p>
@@ -37,7 +37,10 @@ function ItemDetail({item}) {
                 <div class="description">
                     <b><p>{`Precio: $${item.price}`}</p></b>
                 </div>
-                <ItemCount stock={item.stock} initial={1} onAdd={onAdd}></ItemCount>
+                {stock > 0 ?
+                    <ItemCount stock={stock} initial={1} onAdd={onAdd}></ItemCount>: 
+                    <h2>Sin stock</h2>
+                }
                 {terminar && (
                     <Link to={`/cart`} style={{ textDecoration: 'none' }}>
                         <Button variant="contained" color="secondary">

@@ -5,7 +5,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import './ItemCount.css';
 
 
-function ItemCount({stock, initial, onAdd, disponible}) {
+function ItemCount({stock, initial, onAdd}) {
 
     const [init, setInit] = useState(initial);
 
@@ -13,7 +13,6 @@ function ItemCount({stock, initial, onAdd, disponible}) {
         if(init !== stock) {
             setInit(init + 1);
         }
-
     }
 
     const quitar = () => {
@@ -33,7 +32,7 @@ function ItemCount({stock, initial, onAdd, disponible}) {
                 <RemoveIcon></RemoveIcon>
                 </IconButton>
             </div>
-            <Button onClick={() => {onAdd(init)}} className="agregar-carrito" variant="contained" color="secondary" disabled={disponible}>
+            <Button onClick={() => {onAdd(init)}} className="agregar-carrito" variant="contained" color="secondary">
                 Agregar al carrito
             </Button>
         </div>

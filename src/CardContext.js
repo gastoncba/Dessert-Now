@@ -53,8 +53,15 @@ export const CardProvider = ({children}) => {
     }
 
 
+    function getStock(producto) {
+        const productoEnCarrito =  carrito.find(item => item.id === producto.id);
+        
+        return productoEnCarrito ? (producto.stock - productoEnCarrito.quantity) : producto.stock; 
+    }
+
+
     return (
-		<CardContext.Provider value={{carrito, setCarrito, addItem, resetCant, total}}>
+		<CardContext.Provider value={{carrito, setCarrito, addItem, resetCant, getStock, total}}>
 			{children}
 		</CardContext.Provider>
 	);

@@ -1,17 +1,20 @@
 import React, {useContext} from 'react';
 import { CardContext } from '../../CardContext';
 import 'semantic-ui-css/semantic.min.css';
+import './Cart.css'
 
 function Cart() {
     
     const {carrito, total} = useContext(CardContext); 
-    console.log(carrito)
-    return (
-        
+    
+    return ( 
+            <div>   
+            <h1 className={'title-cart'}>Carrito de compras</h1>
+            <div className={'items-conteiner'}>
             <div class="ui items">
             {carrito.map(item => {
                 return(
-                <div class="item">
+                <div class="item" key={item.id}>
                 <div class="image">
                 <img src={item.img}></img>
                 </div>
@@ -29,7 +32,9 @@ function Cart() {
                 </div>
                 )
             })}
-            </div>   
+            </div>
+            </div>
+            </div>  
     )
 }
 

@@ -1,10 +1,8 @@
 import React, {useState, useContext} from 'react'
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
 import CartWidget from '../CartWidget/CartWidget'
 import { NavLink, Link } from 'react-router-dom';
 import './NavBar.css';
 import { CardContext } from '../../CardContext';
-
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -26,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
       flexGrow: 1,
       marginTop: '9.8%',
-      marginRight: theme.spacing(4),
+      marginRight: theme.spacing(1),
     },
   }));
 
@@ -58,7 +56,11 @@ function NavBar() {
                   Dessert Now!
               </Typography>
             </Link>
-            <Button className={'categoria'} aria-controls="menu-category" aria-haspopup="true" onClick={handleClick}>
+            <Button className={'categoria'} aria-controls="menu-category" aria-haspopup="true" onClick={handleClick}
+              style={{
+              color:'white',  
+              textTransform: 'lowercase', 
+              fontSize: '120%'}}>
                Categorias
             </Button>
             </div>

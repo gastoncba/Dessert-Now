@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 .menu {
     margin-bottom: 5%;
@@ -22,10 +22,5 @@
 }
 
 .categoria {
-    color: white;
-    text-transform: lowercase;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 120%;
+    font-family: 'Roboto', sans-serif !important;
 }
-
-

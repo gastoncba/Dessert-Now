@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.title-cart {
+    margin-left: 2%;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 400%;
+}
+
+.items-conteiner {
+    margin: 15px 30px
+}
