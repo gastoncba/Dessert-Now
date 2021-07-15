@@ -44,10 +44,10 @@ export const CardProvider = ({children}) => {
     }
 
     function total() {
-        let total = 0;
-        carrito.forEach(item => {
-            total += item.quantity*item.price;
-        });
+
+        const total = carrito.reduce((sumaTotal, item) => {
+            return (item.price * item.quantity) + sumaTotal;
+        }, 0);
 
         return total;
     }
@@ -58,10 +58,13 @@ export const CardProvider = ({children}) => {
         
         return productoEnCarrito ? (producto.stock - productoEnCarrito.quantity) : producto.stock; 
     }
-
+    
+    function removeItem(producto) {
+        setCarrito(carrito.filter(item => item.id !== producto.id));
+    }
 
     return (
-		<CardContext.Provider value={{carrito, setCarrito, addItem, resetCant, getStock, total}}>
+		<CardContext.Provider value={{carrito, setCarrito, addItem, resetCant, getStock, total, removeItem}}>
 			{children}
 		</CardContext.Provider>
 	);

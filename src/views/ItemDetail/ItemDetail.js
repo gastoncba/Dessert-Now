@@ -5,6 +5,8 @@ import './ItemDetail.css'
 import 'semantic-ui-css/semantic.min.css'
 import ItemCount from '../../components/ItemCount/ItemCount'
 import { Link } from 'react-router-dom';
+import { Item } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css';
 
 function ItemDetail({item}) {
     
@@ -20,24 +22,20 @@ function ItemDetail({item}) {
     }
 
     return (
-        <div className='item-detail'>
-        <div class="ui items">
-            <div class="item">
-                <div class="ui large image">
-                    <img src={item.img}/>
-                </div>
-                <div class="content">
-                <p class="header">{item.name}</p>
-                <div class="meta">
-                    <span>Detalle</span>
-                </div>
-                <div class="description">
-                    <p>{item.description}</p>
-                </div>
-                <div class="description">
-                    <b><p>{`Precio: $${item.price}`}</p></b>
-                </div>
-                {stock > 0 ?
+    <div className={'item-detail'}>
+        <Item.Group>
+        <Item>
+        <Item.Image size='large' src={item.img}/>
+        <Item.Content>
+            <Item.Header style={{
+                fontFamily:'bebas Neue',
+                fontSize: '190%',
+            }}>{item.name}</Item.Header>
+            <Item.Description>
+            <p>{item.description}</p>
+            <p><b>{`Precio: $${item.price}`}</b></p>
+            </Item.Description>
+            {stock > 0 ?
                     <ItemCount stock={stock} initial={1} onAdd={onAdd}></ItemCount>: 
                     <h2>Sin stock</h2>
                 }
@@ -48,12 +46,11 @@ function ItemDetail({item}) {
                         </Button>
                     </Link>
                 )}
-                <p>{aviso}</p>
-                </div>
-            </div>
-        </div> 
-        </div>
-        
+            <p>{aviso}</p>
+        </Item.Content>
+        </Item>
+  </Item.Group>
+    </div>      
     )
 }
 

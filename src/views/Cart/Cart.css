@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+
+.alert-cart {
+    margin-left: 5%;
+    font-family: 'Bebas Neue', cursive;
+}
 
 .title-cart {
     margin-left: 2%;
@@ -8,4 +15,12 @@
 
 .items-conteiner {
     margin: 15px 30px
+}
+
+.cart-empty {
+    margin-left: 30%;
+}
+
+.total-title {
+    font-family: 'Roboto', sans-serif;
 }
