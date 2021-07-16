@@ -2,8 +2,6 @@ import React, {useState} from 'react'
 import {Button, IconButton} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
 import './ItemCount.css';
 
 

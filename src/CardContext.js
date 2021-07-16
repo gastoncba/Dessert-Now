@@ -8,7 +8,6 @@ export const CardContext = createContext();
 export const CardProvider = ({children}) => {
 
     const [carrito, setCarrito] = useState([]);
-    const [cantItems, setCantItems] = useState(0);
 
     //funciones relacionadas con el carrito de compras
 
@@ -36,11 +35,12 @@ export const CardProvider = ({children}) => {
     }
 
     function resetCant() {
-        let cant = 0;
-        carrito.forEach(item => {
-            cant += item.quantity;
-        })
-        return cant
+        const cantItem = carrito.reduce((cant, item) => {
+            return item.quantity + cant;
+        }, 0);
+
+        return cantItem;
+        
     }
 
     function total() {
@@ -48,10 +48,9 @@ export const CardProvider = ({children}) => {
         const total = carrito.reduce((sumaTotal, item) => {
             return (item.price * item.quantity) + sumaTotal;
         }, 0);
-
+        
         return total;
     }
-
 
     function getStock(producto) {
         const productoEnCarrito =  carrito.find(item => item.id === producto.id);
