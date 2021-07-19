@@ -13,3 +13,5 @@ var firebaseConfig = {
 const app = !firebase.apps.length? firebase.initializeApp(firebaseConfig): firebase.app()
 
 export const itemsCollection = firebase.firestore(app).collection('products'); //El metodo firestore nos permite trabajar con la base de datos.
+
+export const db = firebase.firestore(app);

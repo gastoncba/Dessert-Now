@@ -30,8 +30,9 @@ const useStyles = makeStyles((theme) => ({
 
 function NavBar() {
 
-  const {resetCant} = useContext(CardContext); 
+  const {getCant} = useContext(CardContext); 
   const [anchorEl, setAnchorEl] = useState(null);
+  const cant = getCant();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -64,10 +65,10 @@ function NavBar() {
                Categorias
             </Button>
             </div>
-            {resetCant() > 0 && (
+            {cant > 0 && (
               <Link to={`/cart`}>
               <IconButton>
-              <Badge badgeContent={resetCant()} color='primary'>
+              <Badge badgeContent={cant} color='primary'>
               <ShoppingCartIcon fontSize='large' style={{ color: 'white' }}></ShoppingCartIcon>
               </Badge>
               </IconButton>

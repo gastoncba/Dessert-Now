@@ -27,23 +27,22 @@ export const CardProvider = ({children}) => {
                     return itemCarrito;
                 }
             })
-            setCarrito(nuevoCarrito);          
+            setCarrito(nuevoCarrito);       
         }
         else {
             setCarrito([...carrito, {...item, quantity}]);
         }
     }
 
-    function resetCant() {
-        const cantItem = carrito.reduce((cant, item) => {
+    function getCant() {
+        const cant = carrito.reduce((cant, item) => {
             return item.quantity + cant;
         }, 0);
 
-        return cantItem;
-        
+        return cant;
     }
 
-    function total() {
+    function getTotal() {
 
         const total = carrito.reduce((sumaTotal, item) => {
             return (item.price * item.quantity) + sumaTotal;
@@ -62,8 +61,12 @@ export const CardProvider = ({children}) => {
         setCarrito(carrito.filter(item => item.id !== producto.id));
     }
 
+    function clear() {
+        setCarrito([]);
+    }
+
     return (
-		<CardContext.Provider value={{carrito, setCarrito, addItem, resetCant, getStock, total, removeItem}}>
+		<CardContext.Provider value={{carrito, setCarrito, addItem, getCant, getStock, getTotal, removeItem, clear}}>
 			{children}
 		</CardContext.Provider>
 	);

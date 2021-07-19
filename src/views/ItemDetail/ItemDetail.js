@@ -2,11 +2,9 @@ import React, {useContext, useState} from 'react'
 import { CardContext } from '../../CardContext';
 import {Button} from '@material-ui/core';
 import './ItemDetail.css'
-import 'semantic-ui-css/semantic.min.css'
 import ItemCount from '../../components/ItemCount/ItemCount'
 import { Link } from 'react-router-dom';
 import { Item } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css';
 
 function ItemDetail({item}) {
     

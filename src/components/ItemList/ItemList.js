@@ -1,12 +1,11 @@
 import React from 'react';
 import Item from '../Item/Item';
-import 'semantic-ui-css/semantic.min.css';
 import {Card, Container} from 'semantic-ui-react';
 
 export default function ItemList({items}) {
     
     return (
-        <Container>
+        <Container style={{ margin: 20 }}>
         <Card.Group>
             {items.map(item => {
                 return(

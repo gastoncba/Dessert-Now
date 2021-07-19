@@ -2,7 +2,6 @@ import React, {useContext} from 'react';
 import { Item } from 'semantic-ui-react'
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
-import 'semantic-ui-css/semantic.min.css'
 import { CardContext } from '../../CardContext';
 
 function ItemCart({item}) {

@@ -3,13 +3,12 @@ import { CardContext } from '../../CardContext';
 import { Item } from 'semantic-ui-react'
 import './Cart.css';
 import ItemCart from '../ItemCart/ItemCart';
-import 'semantic-ui-css/semantic.min.css';
 import {Button} from '@material-ui/core/';
 import { Link } from 'react-router-dom';
 
 function Cart() {
     
-    const {carrito, total} = useContext(CardContext); 
+    const {carrito, getTotal} = useContext(CardContext); 
     
     return ( 
             <div>   
@@ -34,7 +33,12 @@ function Cart() {
             }
             </Item.Group>
             {carrito.length > 0 &&
-            <h2 className={'total-title'}>{`Total del carrito: $${total()}`}</h2>
+            <div>
+            <h2 className={'total-title'}>{`Total del carrito: $${getTotal()}`}</h2>
+            <Link to={`/form`}>
+                <Button variant="contained" color="secondary">Finalizar compra</Button>
+            </Link>
+            </div>
             }
             </div>
             </div>  
