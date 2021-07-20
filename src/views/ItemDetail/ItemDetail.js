@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react'
-import { CardContext } from '../../CardContext';
+import { CardContext } from '../../context/CardContext';
 import {Button} from '@material-ui/core';
 import './ItemDetail.css'
 import ItemCount from '../../components/ItemCount/ItemCount'

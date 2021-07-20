@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
-import {itemsCollection} from '../../firebase';
+import {itemsCollection} from '../../firebase/firebase';
 import { CircularProgress } from '@material-ui/core';
 
 function ItemListContainer({match}) {

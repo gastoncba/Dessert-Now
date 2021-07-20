@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.form {
+    width: 100%;
+    border: black;
+}
+
+.order-title {
+    font-family: 'Roboto', sans-serif;
+}
+
+.conteiner-form {
+    padding: 5% 20%
+}

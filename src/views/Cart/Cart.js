@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { CardContext } from '../../CardContext';
+import { CardContext } from '../../context/CardContext';
 import { Item } from 'semantic-ui-react'
 import './Cart.css';
 import ItemCart from '../ItemCart/ItemCart';

@@ -11,7 +11,7 @@ import ItemDetailContainer from './views/ItemDetailContainer/ItemDetailContainer
 // REACT-ROUTER-DOM
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //importamos el provider 
-import {CardProvider} from './CardContext';
+import {CardProvider} from './context/CardContext';
 
 class App extends React.Component {
   render() {

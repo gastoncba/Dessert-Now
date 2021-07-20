@@ -1,6 +1,6 @@
 import React , { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
-import {itemsCollection} from '../../firebase';
+import {itemsCollection} from '../../firebase/firebase';
 import { CircularProgress } from '@material-ui/core';
 
 function ItemDetailContainer({match}) {
