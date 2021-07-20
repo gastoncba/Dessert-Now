@@ -13,8 +13,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //importamos el provider 
 import {CardProvider} from './context/CardContext';
 
-class App extends React.Component {
-  render() {
+function App() {
     return(
     <CardProvider>
     <Router>
@@ -29,7 +28,6 @@ class App extends React.Component {
     </Router>
     </CardProvider>
     )
-  }
 }
 
 export default App;
