@@ -3,6 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
 import {itemsCollection} from '../../firebase/firebase';
 import { CircularProgress } from '@material-ui/core';
+import {Container} from 'semantic-ui-react';
 
 function ItemListContainer({match}) {
 
@@ -24,11 +25,11 @@ function ItemListContainer({match}) {
     }, [nombreCateoria]);
 
     return (
-        <div> 
+        <Container>
             <h1 className='titulo-principal'>Bienvenidos a Dessert NOW!</h1>
             {isLoading? <CircularProgress color='secondary' style={{marginLeft: '50%', marginTop: '10%'}}></CircularProgress>: 
             <ItemList items={items} category={nombreCateoria}></ItemList>}
-        </div>   
+        </Container>   
     )
 }
 

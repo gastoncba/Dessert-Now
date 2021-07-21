@@ -95,8 +95,8 @@ function NavBar() {
                 </NavLink>
             </MenuItem>
             <MenuItem onClick={handleClose}>
-                <NavLink to={"/category/Postres"} style={{ textDecoration: 'none', color: 'black'}}>
-                            Postres
+                <NavLink to={"/category/De Frutas"} style={{ textDecoration: 'none', color: 'black'}}>
+                            De Frutas
                 </NavLink>
             </MenuItem>
 

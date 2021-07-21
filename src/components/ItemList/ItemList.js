@@ -5,17 +5,13 @@ import {Card, Container} from 'semantic-ui-react';
 export default function ItemList({items}) {
     
     return (
-        <Container style={{ margin: 20 }}>
         <Card.Group>
             {items.map(item => {
                 return(
-                <div key={item.id}>
-                    <Item item={item}></Item>
-                </div>
+                <Item item={item} key={item.id}></Item>
                 )
             })}
         </Card.Group>
-        </Container>
     )
 
 }

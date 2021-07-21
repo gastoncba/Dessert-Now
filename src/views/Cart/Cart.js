@@ -19,7 +19,7 @@ function Cart() {
             
             carrito.map(itemCart => {
                 return(
-                    <ItemCart item={itemCart}></ItemCart>
+                    <ItemCart item={itemCart} key={itemCart.id}></ItemCart>
                 )
             })
             : <div style={{ marginLeft: '30%'}}>
