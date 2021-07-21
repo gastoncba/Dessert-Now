@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import { Button, Container, Form } from 'semantic-ui-react';
 import { CardContext } from '../../context/CardContext';
 import {db, itemsCollection, time} from '../../firebase/firebase';
@@ -74,7 +74,7 @@ function OrderConteiner() {
         <Container className='conteiner-form'>
         {!confirm ?  
             <Form className='form' onSubmit={formik.handleSubmit}>
-                <h1 className='order-title'>Order de Pedido</h1>
+                <h1 className='order-title'>Orden de Pedido</h1>
                 <Form.Field>
                 <label>Nombre</label>
                 <input 
@@ -119,7 +119,7 @@ function OrderConteiner() {
         <Message positive>
             <Message.Header>Orden registrada con exito!</Message.Header>
             <p>
-            Numero de order:{ID}.
+            Numero de orden:{ID}.
             </p>
             <p>
             Recibira una notificacion cuando este lista!

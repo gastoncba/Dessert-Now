@@ -8,13 +8,9 @@
 }
 
 .title-cart {
-    margin-left: 2%;
+    margin-left: 0;
     font-family: 'Bebas Neue', cursive;
     font-size: 400%;
-}
-
-.items-conteiner {
-    margin: 15px 30px
 }
 
 .cart-empty {

@@ -25,10 +25,10 @@ function ItemCount({stock, initial, onAdd}) {
         <div>
             <div className={'conteiner-count'}>
                 <h4>Cantidad: {init}</h4>
-                <IconButton onClick={agregar} color="primary" aria-label="add to shopping cart" style={{paddingTop: 0}}>
+                <IconButton onClick={agregar} color="primary" aria-label="add to shopping cart" style={{marginTop: 0}}>
                 <AddIcon></AddIcon>
                 </IconButton>
-                <IconButton onClick={quitar} color="primary" aria-label="add to shopping cart" style={{paddingTop: 0}}>
+                <IconButton onClick={quitar} color="primary" aria-label="add to shopping cart" style={{marginTop: 0}}>
                 <RemoveIcon></RemoveIcon>
                 </IconButton>
             </div>

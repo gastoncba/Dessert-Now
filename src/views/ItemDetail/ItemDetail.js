@@ -30,7 +30,7 @@ function ItemDetail({item}) {
                 fontSize: '190%',
             }}>{item.name}</Item.Header>
             <Item.Description>
-            {item.description}
+            <p><b>Descripcion: </b>{item.description}</p>
             <p><b>{`Precio: $${item.price}`}</b></p>
             </Item.Description>
             {stock > 0 ?

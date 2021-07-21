@@ -5,7 +5,7 @@ import {Card, Image} from 'semantic-ui-react';
 
 function Item({item}) {
     return (
-        <Card style={{marginRight: 70}}>
+        <Card style={{marginRight:'50px'}}>
         <Image src={item.img}/>
         <Card.Content>
             <Card.Header>{item.name}</Card.Header>

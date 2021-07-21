@@ -25,7 +25,7 @@ function ItemListContainer({match}) {
     }, [nombreCateoria]);
 
     return (
-        <Container>
+        <Container style={{marginTop: '5rem', marginLeft: '2rem'}}>
             <h1 className='titulo-principal'>Bienvenidos a Dessert NOW!</h1>
             {isLoading? <CircularProgress color='secondary' style={{marginLeft: '50%', marginTop: '10%'}}></CircularProgress>: 
             <ItemList items={items} category={nombreCateoria}></ItemList>}

@@ -2,6 +2,7 @@ import React , { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
 import {itemsCollection} from '../../firebase/firebase';
 import { CircularProgress } from '@material-ui/core';
+import { Container } from 'semantic-ui-react';
 
 function ItemDetailContainer({match}) {
 
@@ -22,11 +23,11 @@ function ItemDetailContainer({match}) {
     }, [ID])
     
     return ( 
-        <div>
+        <Container>
         {isLoading? <CircularProgress color='secondary' style={{marginLeft: '50%', marginTop: '10%'}}></CircularProgress>: 
         <ItemDetail item={producto}></ItemDetail>
         } 
-        </div>
+        </Container>
     )
 }
 

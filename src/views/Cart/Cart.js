@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import { CardContext } from '../../context/CardContext';
-import { Item } from 'semantic-ui-react'
+import { Container, Item } from 'semantic-ui-react'
 import './Cart.css';
 import ItemCart from '../ItemCart/ItemCart';
 import {Button} from '@material-ui/core/';
@@ -11,12 +11,11 @@ function Cart() {
     const {carrito, getTotal} = useContext(CardContext); 
     
     return ( 
-            <div>   
+            <Container style={{marginTop: '5rem'}}>   
             <h1 className={'title-cart'}>Carrito de compras</h1>
-            <div className={'items-conteiner'}>
-            <Item.Group divided>
-            {carrito.length > 0 ? 
             
+            <Item.Group divided>
+            {carrito.length > 0 ?  
             carrito.map(itemCart => {
                 return(
                     <ItemCart item={itemCart} key={itemCart.id}></ItemCart>
@@ -40,8 +39,7 @@ function Cart() {
             </Link>
             </div>
             }
-            </div>
-            </div>  
+            </Container>  
     )
 }
 
