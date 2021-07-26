@@ -2,10 +2,11 @@ import React from 'react'
 import {Button} from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import {Card, Image} from 'semantic-ui-react';
+import './Item.css'
 
 function Item({item}) {
     return (
-        <Card style={{marginRight:'50px'}}>
+        <Card id='card-container'>
         <Image src={item.img}/>
         <Card.Content>
             <Card.Header>{item.name}</Card.Header>

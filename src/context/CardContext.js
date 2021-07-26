@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect} from 'react';
 
 //1 - Aca creamos el contexto: 
 export const CardContext = createContext();
@@ -53,7 +53,6 @@ export const CardProvider = ({children}) => {
 
     function getStock(producto) {
         const productoEnCarrito =  carrito.find(item => item.id === producto.id);
-        
         return productoEnCarrito ? (producto.stock - productoEnCarrito.quantity) : producto.stock; 
     }
     
@@ -64,6 +63,19 @@ export const CardProvider = ({children}) => {
     function clear() {
         setCarrito([]);
     }
+
+    useEffect(()=> {
+        const localCart = localStorage.getItem('cart');
+        if(localCart) {
+            setCarrito(JSON.parse(localCart))
+        } else {
+            localStorage.setItem('cart', JSON.stringify([]))
+        }
+    }, [])
+    
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(carrito))
+    }, [carrito])
 
     return (
 		<CardContext.Provider value={{carrito, setCarrito, addItem, getCant, getStock, getTotal, removeItem, clear}}>

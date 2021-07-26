@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import CartWidget from '../CartWidget/CartWidget'
 import { NavLink, Link } from 'react-router-dom';
 import './NavBar.css';
@@ -13,6 +13,7 @@ import Badge from '@material-ui/core/Badge'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import {itemsCategories} from '../../firebase/firebase';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,6 +33,7 @@ function NavBar() {
 
   const {getCant} = useContext(CardContext); 
   const [anchorEl, setAnchorEl] = useState(null);
+  const [categories, setCategories] = useState([]);
   const cant = getCant();
 
   const handleClick = (event) => {
@@ -43,6 +45,12 @@ function NavBar() {
   };
 
   const classes = useStyles();
+  
+  useEffect(() => {
+    itemsCategories.get().then((querySnapshot) => {
+      setCategories(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
+    })  
+  }, [])
 
     return (
         <div className={classes.root, 'menu'}>
@@ -84,22 +92,16 @@ function NavBar() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
         >
-            <MenuItem onClick={handleClose}>
-                <NavLink to={"/category/Tortas"} style={{ textDecoration: 'none', color: 'black'}}>
-                            Tortas
+          {console.log(categories)}
+          {categories.map(cat => {
+            return (
+              <MenuItem onClick={handleClose} key={cat.id}>
+                <NavLink to={`/category/${cat.name}`} style={{ textDecoration: 'none', color: 'black'}}>
+                            {cat.name}
                 </NavLink>
             </MenuItem>
-            <MenuItem onClick={handleClose}>
-                <NavLink to={"/category/Helados"} style={{ textDecoration: 'none', color: 'black'}}>
-                            Helados
-                </NavLink>
-            </MenuItem>
-            <MenuItem onClick={handleClose}>
-                <NavLink to={"/category/De Frutas"} style={{ textDecoration: 'none', color: 'black'}}>
-                            De Frutas
-                </NavLink>
-            </MenuItem>
-
+            )
+          })}
         </Menu>
     </div>
     )
