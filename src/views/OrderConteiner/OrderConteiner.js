@@ -8,7 +8,7 @@ import {useFormik} from 'formik';
 
 function OrderConteiner() {
 
-    const {carrito, getTotal, clear} = useContext(CardContext);
+    const {carrito, total, clear} = useContext(CardContext);
 
     const validate = values => {
         const error = {}
@@ -52,7 +52,7 @@ function OrderConteiner() {
                     return {id: itemCart.id, title: itemCart.name, price: itemCart.price, quantity: itemCart.quantity}
                 }),
                 date: time.now(),
-                total: getTotal(),
+                total: total,
             }
             addOrder(order);
             formik.resetForm();

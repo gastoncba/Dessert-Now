@@ -31,10 +31,9 @@ const useStyles = makeStyles((theme) => ({
 
 function NavBar() {
 
-  const {getCant} = useContext(CardContext); 
+  const {cant} = useContext(CardContext); 
   const [anchorEl, setAnchorEl] = useState(null);
   const [categories, setCategories] = useState([]);
-  const cant = getCant();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

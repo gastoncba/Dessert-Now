@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 function Cart() {
     
-    const {carrito, getTotal} = useContext(CardContext); 
+    const {carrito, total} = useContext(CardContext); 
     
     return ( 
             <Container style={{marginTop: '5rem'}}>   
@@ -33,7 +33,7 @@ function Cart() {
             </Item.Group>
             {carrito.length > 0 &&
             <div>
-            <h2 className={'total-title'}>{`Total del carrito: $${getTotal()}`}</h2>
+            <h2 className={'total-title'}>{`Total del carrito: $${total}`}</h2>
             <Link to={`/form`}>
                 <Button variant="contained" color="secondary">Finalizar compra</Button>
             </Link>

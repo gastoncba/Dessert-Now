@@ -7,8 +7,11 @@ export const CardContext = createContext();
 //2 - Creamos el provider 
 export const CardProvider = ({children}) => {
 
+    //estamos del carrito de compras
     const [carrito, setCarrito] = useState([]);
-
+    const [total, setTotal] = useState(0);
+    const [cant, setCant] = useState(0)
+    
     //funciones relacionadas con el carrito de compras
 
     //Verificar si el producto esta en el carrito 
@@ -75,10 +78,12 @@ export const CardProvider = ({children}) => {
     
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(carrito))
+        setCant(getCant())
+        setTotal(getTotal())
     }, [carrito])
 
     return (
-		<CardContext.Provider value={{carrito, setCarrito, addItem, getCant, getStock, getTotal, removeItem, clear}}>
+		<CardContext.Provider value={{carrito, setCarrito, addItem, cant, getStock, total, removeItem, clear}}>
 			{children}
 		</CardContext.Provider>
 	);
