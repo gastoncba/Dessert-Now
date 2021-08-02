@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Para este Proyecto se utilizaron las siguientes librerías adicionales, con la idea de centrarnos en la lógica de la aplicación: 
+
+Semantic UI  https://react.semantic-ui.com/ usando los componentes: Conteiner, Card, Image, Item, Message
+
+Material UI https://material-ui.com/ usando los componentes: Menu, MenuItem, Badge, IconButton, AppBar, ToolBar, Button, ShoppingCartIcon, Typography, makeStyles, CircularProgress, AddIcon, RemoveIcon, DeleteIcon
+
+Formik https://formik.org/ usando la hook useFormik  
+
