@@ -1,7 +1,6 @@
 import React, {useState, useContext} from 'react';
 import { Button, Container, Form } from 'semantic-ui-react';
 import { CardContext } from '../../context/CardContext';
-import {db, itemsCollection, time} from '../../firebase/firebase';
 import './OrderConteiner.css'; 
 import { Message } from 'semantic-ui-react';
 import {useFormik} from 'formik';
@@ -48,10 +47,10 @@ function OrderConteiner() {
             const order = {
                 buyer: values, 
                 items: carrito.map(itemCart => {
-                    itemsCollection.doc(itemCart.id).update({stock: itemCart.stock - itemCart.quantity})
-                    return {id: itemCart.id, title: itemCart.name, price: itemCart.price, quantity: itemCart.quantity}
+                    updateStock(itemCart)
+                    return {_id: itemCart._id, title: itemCart.name, price: itemCart.price, quantity: itemCart.quantity}
                 }),
-                date: time.now(),
+                date: "Una fecha",
                 total: total,
             }
             addOrder(order);
@@ -63,11 +62,51 @@ function OrderConteiner() {
     const [confirm, setConfirm] = useState(false);
 
     const addOrder = async (order) => {
-        const newOrder = db.collection('orders').doc()
-        await newOrder.set(order);
-        setID(newOrder.id); 
-        clear()
-        setConfirm(true);   
+        //creamos una nueva orden 
+        try {
+
+            const res = await fetch('https://api-dessert-now.herokuapp.com/api/create-order', 
+            {
+                method: 'POST',
+                body: JSON.stringify(order),
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+            const response = await res.text()
+            console.log(response)
+            
+            setID(response); 
+            clear()
+            setConfirm(true);
+        } 
+
+        catch(e) {
+            console.log(e)
+        }
+           
+    }
+
+    const updateStock = async (item) => {
+        try {
+            const body = {stock: item.stock - item.quantity}
+
+            const res = await fetch(`https://api-dessert-now.herokuapp.com/api/update-stock/${item._id}`, 
+            {
+                method: 'PUT',
+                body:JSON.stringify(body), 
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            const response = await res.text()
+            console.log(response)
+
+        }
+        catch(e) {
+            console.log(e)
+        }
     }
 
     return (

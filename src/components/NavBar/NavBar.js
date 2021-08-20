@@ -13,7 +13,6 @@ import Badge from '@material-ui/core/Badge'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import {itemsCategories} from '../../firebase/firebase';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,9 +45,10 @@ function NavBar() {
   const classes = useStyles();
   
   useEffect(() => {
-    itemsCategories.get().then((querySnapshot) => {
-      setCategories(querySnapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
-    })  
+    fetch('https://api-dessert-now.herokuapp.com/api/categories')
+    .then(res => res.json())
+    .then(data => setCategories(data))
+    .catch(e => console.log(e))
   }, [])
 
     return (

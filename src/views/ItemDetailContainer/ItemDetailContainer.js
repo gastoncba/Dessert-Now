@@ -1,6 +1,5 @@
 import React , { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
-import {itemsCollection} from '../../firebase/firebase';
 import { CircularProgress } from '@material-ui/core';
 import { Container } from 'semantic-ui-react';
 
@@ -11,11 +10,13 @@ function ItemDetailContainer({match}) {
     const [isLoading, setIsLoading] = useState(true)
 
     const getItem = () => {
-        const productoDeID = itemsCollection.doc(ID);
-        productoDeID.get().then((doc) => {
-            setProducto({...doc.data(), id: doc.id})
-            setIsLoading(false)
+        fetch(`https://api-dessert-now.herokuapp.com/api/products/${ID}`)
+        .then(res => res.json())
+        .then(data => {
+            setProducto(data)
+            setIsLoading(false);
         })
+        .catch(e => console.log(e))
     }
 
     useEffect(() => {

@@ -16,14 +16,14 @@ export const CardProvider = ({children}) => {
 
     //Verificar si el producto esta en el carrito 
     function isInCart(id) {
-       return carrito.some(item => item.id === id);
-}   
+       return carrito.some(item => item._id === id);
+    }   
     //Agregar el producto al carrito
     function addItem(item, quantity) {
         
-        if(isInCart(item.id)) {
+        if(isInCart(item._id)) {
             const nuevoCarrito = carrito.map(itemCarrito => {
-                if(itemCarrito.id === item.id) {
+                if(itemCarrito._id === item._id) {
                     return {...itemCarrito, quantity: itemCarrito.quantity + quantity}
                 }
                 else {
@@ -55,12 +55,12 @@ export const CardProvider = ({children}) => {
     }
 
     function getStock(producto) {
-        const productoEnCarrito =  carrito.find(item => item.id === producto.id);
+        const productoEnCarrito =  carrito.find(item => item._id === producto._id);
         return productoEnCarrito ? (producto.stock - productoEnCarrito.quantity) : producto.stock; 
     }
     
     function removeItem(producto) {
-        setCarrito(carrito.filter(item => item.id !== producto.id));
+        setCarrito(carrito.filter(item => item._id !== producto._id));
     }
 
     function clear() {

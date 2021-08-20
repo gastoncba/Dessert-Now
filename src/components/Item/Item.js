@@ -11,7 +11,7 @@ function Item({item}) {
         <Card.Content>
             <Card.Header>{item.name}</Card.Header>
             <p>{`Precio: $${item.price}`}</p>
-            <Link to={`/item/${item.id}`} style={{ textDecoration: 'none' }}>
+            <Link to={`/item/${item._id}`} style={{ textDecoration: 'none' }}>
                 <Button className="boton-detalle" variant="contained" color="secondary">
                     Ver Detalle
                 </Button>
