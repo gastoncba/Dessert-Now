@@ -1,3 +1,17 @@
+# Dessert Now!
+Aplicación que permite a las personas realizar la compra de diferentes postres que se encuentran en venta. Las categorías disponibles son: Tortas, Helados y De Frutas.
+
+El frontfrond de este proyecto se encuentra desarrollado en ReactJS, utilizado algunas librerías adicionales que se comentan más abajo en esta sección. 
+En lo que respecta a la parte backend, se encuentra desarrollado en Node.js.  
+
+Para este Proyecto se utilizaron las siguientes librerías adicionales, con la idea de centrarnos en la lógica de la aplicación: 
+
+Semantic UI  https://react.semantic-ui.com/ usando los componentes: Conteiner, Card, Image, Item, Message
+
+Material UI https://material-ui.com/ usando los componentes: Menu, MenuItem, Badge, IconButton, AppBar, ToolBar, Button, ShoppingCartIcon, Typography, makeStyles, CircularProgress, AddIcon, RemoveIcon, DeleteIcon
+
+Formik https://formik.org/ usando la hook useFormik
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,12 +82,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-Para este Proyecto se utilizaron las siguientes librerías adicionales, con la idea de centrarnos en la lógica de la aplicación: 
-
-Semantic UI  https://react.semantic-ui.com/ usando los componentes: Conteiner, Card, Image, Item, Message
-
-Material UI https://material-ui.com/ usando los componentes: Menu, MenuItem, Badge, IconButton, AppBar, ToolBar, Button, ShoppingCartIcon, Typography, makeStyles, CircularProgress, AddIcon, RemoveIcon, DeleteIcon
-
-Formik https://formik.org/ usando la hook useFormik  
-
