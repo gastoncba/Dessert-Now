@@ -88,4 +88,3 @@ export const CardProvider = ({children}) => {
 		</CardContext.Provider>
 	);
 }
-
