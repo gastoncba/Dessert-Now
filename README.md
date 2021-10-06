@@ -1,7 +1,7 @@
 # Dessert Now!
 Aplicación que permite a las personas realizar la compra de diferentes postres que se encuentran en venta. Las categorías disponibles son: Tortas, Helados y De Frutas.
 
-El frontfrond de este proyecto se encuentra desarrollado en ReactJS, utilizado algunas librerías adicionales que se comentan más abajo en esta sección. 
+El frontend de este proyecto se encuentra desarrollado en ReactJS, utilizado algunas librerías adicionales que se comentan más abajo en esta sección. 
 En lo que respecta a la parte backend, se encuentra desarrollado en Node.js.  
 
 Para este Proyecto se utilizaron las siguientes librerías adicionales, con la idea de centrarnos en la lógica de la aplicación: 
