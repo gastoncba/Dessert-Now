@@ -3,3 +3,12 @@
         margin-right: 50px;
     }
 }
+
+@media only screen and (max-device-width: 660px) {
+    #card-container {
+        display: grid;
+        grid-template-columns: 1fr; 
+        grid-gap: 20px; 
+        padding: 20px auto; 
+    }
+}
