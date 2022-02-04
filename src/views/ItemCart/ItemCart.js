@@ -10,11 +10,11 @@ function ItemCart({item}) {
 
     return (
         <Item>
-            <Item.Image size='small' src={item.img} />
+            <Item.Image size='medium' src={item.img} />
             <Item.Content>
                 <Item.Header>{item.name}</Item.Header>
                 <Item.Description>
-                    <p>{`precio $${item.price}`}</p>
+                    <p>{`Precio $${item.price}`}</p>
                     <p>{`Cantidad: ${item.quantity}`}</p>
                     <p>{`Subtotal: $${item.quantity*item.price}`}</p>
                 </Item.Description>

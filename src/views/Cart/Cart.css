@@ -3,20 +3,14 @@
 
 
 .alert-cart {
-    margin-left: 5%;
     font-family: 'Bebas Neue', cursive;
 }
 
 .title-cart {
-    margin-left: 0;
+    text-align: center;
     font-family: 'Bebas Neue', cursive;
     font-size: 400%;
 }
-
-.cart-empty {
-    margin-left: 30%;
-}
-
 .total-title {
     margin-top: 80px;
     font-family: 'Roboto', sans-serif;
