@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-.item-detail {
-    margin: 100px 30px;
+.title-detail {
+    font-family:'bebas Neue'; 
+    font-size: '2rem'
 }
