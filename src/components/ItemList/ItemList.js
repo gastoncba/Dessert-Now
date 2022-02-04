@@ -1,19 +1,19 @@
 import React from 'react';
 import Item from '../Item/Item';
-import {Card} from 'semantic-ui-react';
-import './ItemList.css'
+// {Card} from 'semantic-ui-react';
+import { Grid } from '@material-ui/core';
 export default function ItemList({items}) {
     
     return (
-            // <Card.Group>
-            <div className={'card-group'}>
+            <Grid container spacing={4}>
                 {items.map(item => {
                     return(
-                    <Item item={item} key={item.id}></Item>
+                        <Grid item xs={12} sm={6} md={4} lg={4}>
+                            <Item item={item} key={item.id}></Item>
+                        </Grid>
                     )
                 })}
-            </div>
-            // </Card.Group>
+            </Grid>
     )
 
 }

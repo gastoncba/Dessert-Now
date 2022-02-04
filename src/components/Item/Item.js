@@ -1,22 +1,35 @@
 import React from 'react'
-import {Button} from '@material-ui/core';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom';
-import {Card, Image} from 'semantic-ui-react';
-import './Item.css'
 
 function Item({item}) {
     return (
-        <Card id='card-container'>
-        <Image src={item.img}/>
-        <Card.Content>
-            <Card.Header>{item.name}</Card.Header>
-            <p>{`Precio: $${item.price}`}</p>
-            <Link to={`/item/${item._id}`} style={{ textDecoration: 'none' }}>
-                <Button className="boton-detalle" variant="contained" color="secondary">
-                    Ver Detalle
+        <Card sm={{ width: '345' }}>
+            <CardActionArea>
+                <CardMedia
+                component="img"
+                height="140"
+                image={item.img}
+                alt={`imagen_de_${item.name}`}
+                />
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                    {item.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {`Precio: $${item.price} ARS`}
+                </Typography>
+                </CardContent>
+            </CardActionArea>
+            <CardActions>
+                <Button size="small" color="secondary" variant="contained">
+                Ver mas
                 </Button>
-            </Link>
-        </Card.Content>
+            </CardActions>
         </Card>
     )
 }
