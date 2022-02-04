@@ -69,7 +69,7 @@ function NavBar() {
               color:'white',  
               textTransform: 'lowercase', 
               fontSize: '120%'}}>
-               Categorias
+              Categorias
             </Button>
             </div>
             {cant > 0 && (
