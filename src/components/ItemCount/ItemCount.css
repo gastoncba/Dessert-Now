@@ -1,9 +1,10 @@
 .agregar-carrito {
     margin-bottom: .9%!important;
+    width: 165;
 }
 
 .conteiner-count {
     display: flex;
     flex-direction: row; 
-    align-items: flex-end;
+    align-items: baseline;
 }
