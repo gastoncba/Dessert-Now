@@ -7,18 +7,13 @@ import ItemCount from '../../components/ItemCount/ItemCount'
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import Grid from '@mui/material/Grid' 
 import Container from '@mui/material/Container'
-import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
-import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded';
 
-// import {Button} from '@material-ui/core';
-// import { Link } from 'react-router-dom';
+
+import {Button} from '@material-ui/core';
+import { Link } from 'react-router-dom';
 // import { Item } from 'semantic-ui-react'
 
 function ItemDetail({item}) {
@@ -50,22 +45,34 @@ function ItemDetail({item}) {
                     image={item.img}
                     alt={`img_${item.img}`}
                 />
-                <CardContent>
+                {/* <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                    {item.description}
+                    {item.description} <br/><br/>
+                    {`Precio: $${item.price} ARS`}
                     </Typography>
-                </CardContent>
-                <CardActions disableSpacing>
-                    
-                    <IconButton>
-                        <AddCircleRoundedIcon style={{color: '#e91e63', fontSize: '2.5rem'}}/>
-                    </IconButton>
-
-                    <IconButton>
-                        <RemoveCircleRoundedIcon style={{color: '#e91e63', fontSize: '2.5rem'}}/>
-                    </IconButton>
-
-                </CardActions>
+                </CardContent> */}
+                <Container fluid className='mb-4 mt-4'>
+                    <Typography variant="body1" color="text.secondary">
+                    {item.description}
+                    </Typography><br/>
+                    <Typography variant='body1'>
+                    {`Precio: $${item.price} ARS`}
+                    </Typography>
+                    {
+                        stock > 0 ? 
+                        <ItemCount stock={stock} initial={1} onAdd={onAdd}></ItemCount>: 
+                        <h2 style={{color: 'purple'}}>Sin stock</h2>
+                    } 
+                    {
+                        terminar && (
+                            <Link to={`/cart`} style={{ textDecoration: 'none' }}>
+                                <Button variant="contained" color="secondary" style={{width: '165px'}}>
+                                    Terminar compra
+                                </Button>
+                            </Link>
+                        )
+                    }
+                </Container>
                 </Card>
             </Grid>
         </Container>

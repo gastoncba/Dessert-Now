@@ -3,6 +3,8 @@ import {Button, IconButton} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import './ItemCount.css';
+import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
+import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded';
 
 
 function ItemCount({stock, initial, onAdd}) {
@@ -21,16 +23,18 @@ function ItemCount({stock, initial, onAdd}) {
         }
     }
 
-    return (
+    return ( 
         <div>
             <div className={'conteiner-count'}>
                 <h4>Cantidad: {init}</h4>
-                <IconButton onClick={agregar} color="primary" aria-label="add to shopping cart" style={{marginTop: 0}}>
-                <AddIcon></AddIcon>
-                </IconButton>
-                <IconButton onClick={quitar} color="primary" aria-label="add to shopping cart" style={{marginTop: 0}}>
-                <RemoveIcon></RemoveIcon>
-                </IconButton>
+                <div>
+                    <IconButton onClick={agregar}>
+                        <AddCircleRoundedIcon style={{color: '#e91e63', fontSize: '2.1rem'}}/>
+                    </IconButton>
+                    <IconButton onClick={quitar} className='pl-0'>
+                        <RemoveCircleRoundedIcon style={{color: '#e91e63', fontSize: '2.1rem'}}/>
+                    </IconButton>
+                </div>
             </div>
             <Button onClick={() => {onAdd(init)}} className="agregar-carrito" variant="contained" color="secondary">
                 Agregar al carrito
