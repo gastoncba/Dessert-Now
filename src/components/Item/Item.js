@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActions, IconButton, Chip} from '@mui/material';
+import { Button, CardActions, IconButton, Chip, ButtonGroup, Box} from '@mui/material';
 import { Link } from 'react-router-dom';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
@@ -52,16 +52,20 @@ function Item({item}) {
                 </Typography>
                 
                 {
-                    getStock(item) ? 
-                    <div>
-                        <IconButton className='pr-0 pl-0' onClick={add}>
-                            <AddIcon style={{background: '#9ea9b1', color: 'white', borderRadius: '25%'}}></AddIcon>
-                        </IconButton>
-                        <IconButton onClick={rem}>
-                            <RemoveIcon style={{background: '#9ea9b1', color: 'white', borderRadius: '25%'}}></RemoveIcon>
-                        </IconButton>
-                        <b>{cant}</b>
-                    </div> : 
+                    getStock(item) ?
+                    <Box sx={{display: 'flex', alignItems: 'center', mt: 2}}>
+                    <ButtonGroup>
+                        <Button color='secondary' onClick={add} sx={{borderColor: '#e91e63'}}>
+                            <AddIcon sx={{color:'#e91e63'}}></AddIcon>
+                        </Button>
+
+                        <Button color='secondary' onClick={rem} sx={{borderColor: '#e91e63'}}>
+                            <RemoveIcon sx={{color:'#e91e63'}}></RemoveIcon>
+                        </Button>
+                    </ButtonGroup>
+                    <b className='ml-3'>{cant}</b>
+                    </Box>
+                    : 
                     <Chip label="Sin stock" color='secondary' size='medium' className='mt-2' variant='outlined'></Chip>
                 }
                 
