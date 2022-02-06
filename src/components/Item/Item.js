@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import {CardContext} from '../../context/CardContext'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,14 +8,24 @@ import { Button, CardActions, IconButton, Chip} from '@mui/material';
 import { Link } from 'react-router-dom';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 function Item({item}) {
 
     const {addItem, getStock} = useContext(CardContext);
+    const [cant, setCant] = useState(1)
+
     const addInCart = () => {
-        addItem(item, 1)
+        addItem(item, cant)
+    }
+
+    const add = () => {
+        if(cant !== getStock(item)) setCant(cant + 1)
+    }
+
+    const rem = () => {
+        if(cant > 1) setCant(cant - 1)
     }
 
     return (
@@ -44,13 +54,13 @@ function Item({item}) {
                 {
                     getStock(item) ? 
                     <div>
-                        <IconButton className='pr-0 pl-0'>
-                            <AddBoxIcon></AddBoxIcon>
+                        <IconButton className='pr-0 pl-0' onClick={add}>
+                            <AddIcon style={{background: '#9ea9b1', color: 'white', borderRadius: '25%'}}></AddIcon>
                         </IconButton>
-                        <IconButton className='pl-0'>
-                            <IndeterminateCheckBoxIcon></IndeterminateCheckBoxIcon>
+                        <IconButton onClick={rem}>
+                            <RemoveIcon style={{background: '#9ea9b1', color: 'white', borderRadius: '25%'}}></RemoveIcon>
                         </IconButton>
-                        <b>{1}</b>
+                        <b>{cant}</b>
                     </div> : 
                     <Chip label="Sin stock" color='secondary' size='medium' className='mt-2' variant='outlined'></Chip>
                 }

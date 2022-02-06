@@ -1,9 +1,11 @@
 .agregar-carrito {
     margin-bottom: .9%!important;
     width: 165;
+    background: #e91e63 !important;
+    color: white !important;
 }
 
-.conteiner-count {
+.container-count {
     display: flex;
     flex-direction: row; 
     align-items: baseline;

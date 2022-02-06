@@ -3,7 +3,7 @@ import { CardContext } from '../../context/CardContext';
 import { Container, Item } from 'semantic-ui-react'
 import './Cart.css';
 import ItemCart from '../ItemCart/ItemCart';
-import {Button} from '@material-ui/core/';
+import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 function Cart() {
@@ -17,7 +17,7 @@ function Cart() {
                 {carrito.length > 0 ?  
                 carrito.map(itemCart => {
                     return(
-                        <ItemCart item={itemCart} key={itemCart.id}></ItemCart>
+                        <ItemCart item={itemCart} key={itemCart._id}></ItemCart>
                     )
                 })
                 : 
@@ -35,7 +35,7 @@ function Cart() {
                 <div>
                 <h2 className={'total-title'}>{`Total del carrito: $${total}`}</h2>
                 <Link to={`/form`}>
-                    <Button variant="contained" color="secondary">Finalizar compra</Button>
+                    <Button variant="contained" style={{color: 'white', background: '#e91e63'}}>Finalizar compra</Button>
                 </Link>
                 </div>
                 }
