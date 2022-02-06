@@ -3,30 +3,30 @@ import CartWidget from '../CartWidget/CartWidget'
 import { NavLink, Link } from 'react-router-dom';
 import './NavBar.css';
 import { CardContext } from '../../context/CardContext';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge'
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+// import { makeStyles } from '@mui/styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import MenuIcon from '@mui/icons-material/Menu';
+import Box from '@mui/material/Box';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-      marginTop: '9.8%',
-      marginRight: theme.spacing(1),
-    },
-  }));
+// const useStyles = makeStyles((theme) => ({
+//     root: {
+//       flexGrow: 1,
+//     },
+//     menuButton: {
+//     },
+//     title: {
+//       flexGrow: 1,
+//       marginTop: '9.8%',
+//     },
+//   }));
 
 function NavBar() {
 
@@ -42,7 +42,7 @@ function NavBar() {
     setAnchorEl(null);
   };
 
-  const classes = useStyles();
+  // const classes = useStyles();
   
   useEffect(() => {
     fetch('https://api-dessert-now.herokuapp.com/api/categories')
@@ -52,15 +52,24 @@ function NavBar() {
   }, [])
 
     return (
-        <div className={classes.root, 'menu'}>
+        // <div className={classes.root, 'menu'}>
+        <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed" style={{backgroundColor: '#e91e63'}}>
             <Toolbar>
-            <div className={'group-menu'}>
             <Link to={`/`} className={'link-conteiner'}>
-              <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              {/* <IconButton edge="start" color="inherit" aria-label="menu">
                   <CartWidget></CartWidget>
-              </IconButton>
-              <Typography variant="h6" className={classes.title}>
+              </IconButton> */}
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+            >
+            <MenuIcon />
+          </IconButton>
+              <Typography variant="h6" component='div' sx={{display:{xs:'none', sm:'block'}, flexGrow:1}}>
                   Dessert Now!
               </Typography>
             </Link>
@@ -71,7 +80,6 @@ function NavBar() {
               fontSize: '120%'}}>
               Categorias
             </Button>
-            </div>
             {cant > 0 && (
               <Link to={`/cart`}>
               <IconButton>
@@ -91,18 +99,18 @@ function NavBar() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
         >
-          {console.log(categories)}
           {categories.map(cat => {
             return (
-              <MenuItem onClick={handleClose} key={cat.id}>
+              <MenuItem onClick={handleClose} key={cat._id}>
                 <NavLink to={`/category/${cat.name}`} style={{ textDecoration: 'none', color: 'black'}}>
-                            {cat.name}
+                  {cat.name}
                 </NavLink>
             </MenuItem>
             )
           })}
         </Menu>
-    </div>
+        </Box>
+    // </div>
     )
 }
 

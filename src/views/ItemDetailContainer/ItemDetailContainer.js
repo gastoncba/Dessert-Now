@@ -1,6 +1,6 @@
 import React , { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
-import { CircularProgress } from '@material-ui/core';
+import CircularProgress from '@mui/material/CircularProgress';
 import { Container } from 'semantic-ui-react';
 
 function ItemDetailContainer({match}) {
@@ -25,7 +25,7 @@ function ItemDetailContainer({match}) {
     
     return ( 
         <Container>
-        {isLoading? <CircularProgress color='secondary' style={{marginLeft: '50%', marginTop: '10%'}}></CircularProgress>: 
+        {isLoading? <CircularProgress color='secondary' style={{marginLeft: '50%', marginTop: '10%', color: '#e91e63'}}></CircularProgress>: 
         <ItemDetail item={producto}></ItemDetail>
         } 
         </Container>
