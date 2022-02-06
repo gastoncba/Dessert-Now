@@ -1,6 +1,5 @@
 import React from 'react'
 import img from './postre.png'
-import './CartWidget.css'
 
 function CartWidget() {
     return (
