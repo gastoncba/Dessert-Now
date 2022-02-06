@@ -24,7 +24,7 @@ function Cart() {
                 <div className='text-center'>
                     <h2 className='alert-cart'>Usted no tiene productos</h2>
                     <Link to={`/`} style={{ textDecoration: 'none' }}>
-                        <Button variant="contained" color="secondary">
+                        <Button variant="contained" style={{background: '#e91e63', color: 'white'}}>
                                 Volver al menu
                         </Button>
                     </Link>
