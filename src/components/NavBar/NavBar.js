@@ -38,21 +38,23 @@ function NavBar() {
     return (
         <AppBar sx={{background: '#e91e63'}}>
           <Toolbar>
+            <Box sx={{flexGrow: 1}}>
             <Link to={`/`} style={{textDecoration: 'none', color: 'white'}}>
               <Box sx={{display: 'flex', alignItems: 'center'}}>
               <IconButton color="inherit" edge='start' size='large'>
                 <CartWidget></CartWidget>
               </IconButton>
-              <Typography variant='h5' sx={{mr: 2, display:{xs: 'none', sm: 'block'}}}>
+              <Typography variant='h5'>
                 <div className='main-title'>Dessert Now!</div>
               </Typography>
               </Box>
             </Link>
-            <Box sx={{flexGrow: 1}}>
+            </Box>
+            {/* <Box sx={{flexGrow: 1}}>
               <Button onClick={handleClick} style={{color: 'white'}}>
                 <div className='category-title'>Categorias</div>
               </Button>
-            </Box>
+            </Box> */}
             {
               cant > 0 && 
               <Link to={`/cart`}>
@@ -65,7 +67,7 @@ function NavBar() {
             }
           </Toolbar>
 
-          <Menu
+          {/* <Menu
             id="menu-category"
             anchorEl={anchorEl}
             keepMounted
@@ -81,7 +83,7 @@ function NavBar() {
               </MenuItem>
             )
           })}
-          </Menu>
+          </Menu> */}
         </AppBar>
     )
 }
