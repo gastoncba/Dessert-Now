@@ -1,21 +1,30 @@
 import React, {useState, useContext} from 'react';
-import { Button, Container, Form } from 'semantic-ui-react';
+import { Button, Container, Form, Message, Icon } from 'semantic-ui-react';
 import { CardContext } from '../../context/CardContext';
 import './OrderConteiner.css'; 
-import { Message } from 'semantic-ui-react';
 import {useFormik} from 'formik';
+import {useHistory} from 'react-router-dom'
 
 function OrderConteiner() {
 
     const {carrito, total, clear} = useContext(CardContext);
+    const history = useHistory()
+
+    const goMain = () => {
+
+        setTimeout(() => {
+            history.push('/')
+        }, 6500)
+
+    }
 
     const validate = values => {
         const error = {}
 
         if(!values.name) {
-            error.name = 'Requierido'
-        } else if (values.name.length > 15) {
-            error.name = 'El nombre debe tener como maximo 15 caracteres...'
+            error.name = 'Requerido'
+        } else if (values.name.length > 15 || values.name.length < 3) {
+            error.name = 'El nombre debe tener como maximo 15 caracteres, minimo 3...'
         }
 
         if(!values.phone) {
@@ -156,13 +165,16 @@ function OrderConteiner() {
             </Form> 
         : 
         <Message positive>
-            <Message.Header>Orden registrada con exito!</Message.Header>
-            <p>
-            Numero de orden:{ID}.
-            </p>
-            <p>
-            Recibira una notificacion cuando este lista!
-            </p>
+            <div className='text-center'>
+                <Message.Header>Orden registrada con exito!</Message.Header>
+                <p>
+                    Recibira una notificacion cuando este lista!
+                </p>
+                <div>
+                    <Icon size='large' name='truck'></Icon>
+                </div>
+                {goMain()}
+            </div>
         </Message>}
         </Container>
         
