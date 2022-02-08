@@ -4,6 +4,7 @@ import './ItemListContainer.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import {Container} from 'semantic-ui-react';
 import Footer from '../Footer/Footer';
+import Categories from '../Categories/Categories';
 
 function ItemListContainer({match}) {
 
@@ -36,7 +37,10 @@ function ItemListContainer({match}) {
         <Container style={{marginTop: '5rem'}}>
             <h1 className='titulo-principal'>Bienvenidos a Dessert NOW!</h1>
             {isLoading? <CircularProgress color='secondary' style={{marginLeft: '50%', marginTop: '10%', color: '#e91e63'}}></CircularProgress>: 
-            <ItemList items={items} category={nombreCateoria}></ItemList>} 
+            <div>
+                <Categories />
+                <ItemList items={items} category={nombreCateoria}></ItemList>
+            </div>}
         </Container>  
         {!isLoading && <Footer></Footer>}
         </div>
