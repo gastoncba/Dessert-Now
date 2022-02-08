@@ -7,14 +7,16 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActions, IconButton, Chip, ButtonGroup, Box} from '@mui/material';
 import { Link } from 'react-router-dom';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { Snackbar, Alert } from '@mui/material';
+import CheckCircleOutlineSharpIcon from '@mui/icons-material/CheckCircleOutlineSharp';
 
 function Item({item}) {
 
     const {addItem, getStock} = useContext(CardContext);
     const [cant, setCant] = useState(1)
+    const [open, setOpen] = useState(false)
 
     const addInCart = () => {
         addItem(item, cant)
@@ -28,6 +30,17 @@ function Item({item}) {
         if(cant > 1) setCant(cant - 1)
     }
 
+    const handleClick = () => {
+        setOpen(true)
+    }
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        } 
+        setOpen(false)
+    }
+
     return (
         <Card sm={{ width: '345' }}>
                 <CardMedia
@@ -38,7 +51,10 @@ function Item({item}) {
                 />
                 <IconButton 
                     disabled={!getStock(item)}
-                    onClick={() => addInCart()}
+                    onClick={() => {
+                        addInCart()
+                        handleClick()
+                    }}
                     aria-label="add to shopping cart" 
                     style={{background:'#e91e63', color: 'white', position: 'relative', bottom: '15px', left: '10px'}}>  
                     <AddShoppingCartIcon />
@@ -77,6 +93,15 @@ function Item({item}) {
                         </Button>
                     </Link>
                 </CardActions>
+
+                <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+                    <Alert 
+                        onClose={handleClose} 
+                        sx={{ width: '100%', background: '#e91e63', color: 'white'}} 
+                        icon={<CheckCircleOutlineSharpIcon sx={{color: 'white'}}/>}>
+                        En su carrito!
+                    </Alert>
+                </Snackbar>
         </Card>
     )
 }
