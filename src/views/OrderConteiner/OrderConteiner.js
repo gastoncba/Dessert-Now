@@ -82,9 +82,9 @@ function OrderConteiner() {
                     'Content-Type': 'application/json'
                 }
             })
-            // const response = await res.text()
-            // console.log(response)
-            
+            const response = await res.text()
+            console.log(response)
+        
             // setID(response); 
             clear()
             setConfirm(true);
