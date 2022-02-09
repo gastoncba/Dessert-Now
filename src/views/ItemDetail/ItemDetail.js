@@ -14,13 +14,11 @@ import { Link } from 'react-router-dom';
 function ItemDetail({item}) {
     
     const {addItem, getStock} = useContext(CardContext); 
-    const [aviso, setAviso] = useState('');
     const [terminar, setTerminar] = useState(false);
     const stock = getStock(item);
 
     function onAdd(quantityToAdd) {
         addItem(item, quantityToAdd); 
-        setAviso('En tu carrito');
         setTerminar(true);
     }
 

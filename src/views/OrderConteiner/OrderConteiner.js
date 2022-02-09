@@ -67,7 +67,7 @@ function OrderConteiner() {
         }
     }) 
     
-    const [ID, setID] = useState(0);
+    // const [ID, setID] = useState(0);
     const [confirm, setConfirm] = useState(false);
 
     const addOrder = async (order) => {
@@ -82,10 +82,10 @@ function OrderConteiner() {
                     'Content-Type': 'application/json'
                 }
             })
-            const response = await res.text()
-            console.log(response)
+            // const response = await res.text()
+            // console.log(response)
             
-            setID(response); 
+            // setID(response); 
             clear()
             setConfirm(true);
         } 
