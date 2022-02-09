@@ -6,6 +6,7 @@ import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import Cart from './views/Cart/Cart';
 import OrderConteiner from './views/OrderConteiner/OrderConteiner';
+import { Box } from '@mui/material';
 //vistas 
 import ItemDetailContainer from './views/ItemDetailContainer/ItemDetailContainer';
 // REACT-ROUTER-DOM
@@ -18,6 +19,7 @@ function App() {
     <CardProvider>
     <Router>
       <NavBar></NavBar>
+      <Box sx={{mt: 10}}>
       <Switch>
         <Route path='/' exact component={ItemListContainer}></Route>
         <Route path='/category/:id' exact component={ItemListContainer}></Route>
@@ -25,6 +27,7 @@ function App() {
         <Route path='/cart' exact component={Cart}></Route>
         <Route path='/form' exact component={OrderConteiner}></Route>
       </Switch>
+      </Box>
     </Router>
     </CardProvider>
     )

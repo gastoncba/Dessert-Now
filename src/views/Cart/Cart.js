@@ -11,7 +11,7 @@ function Cart() {
     const {carrito, total} = useContext(CardContext); 
     
     return ( 
-            <Container style={{marginTop: '5rem'}}>   
+            <Container sx={{mb: 5}}>   
                 <h1 className='title-cart'>Carrito de compras</h1>
                 <Item.Group divided>
                 {carrito.length > 0 ?  
@@ -35,7 +35,9 @@ function Cart() {
                 <div>
                 <h2 className={'total-title'}>{`Total del carrito: $${total}`}</h2>
                 <Link to={`/form`}>
-                    <Button variant="contained" style={{color: 'white', background: '#e91e63'}}>Finalizar compra</Button>
+                    <Button variant="contained" style={{color: 'white', background: '#e91e63'}}>
+                        Finalizar compra
+                    </Button>
                 </Link>
                 </div>
                 }
