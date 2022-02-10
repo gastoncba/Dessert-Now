@@ -19,7 +19,7 @@ function App() {
     <CardProvider>
     <Router>
       <NavBar></NavBar>
-      <Box sx={{mt: 10}}>
+      <Box sx={{mt: '5rem'}}>
       <Switch>
         <Route path='/' exact component={ItemListContainer}></Route>
         <Route path='/category/:id' exact component={ItemListContainer}></Route>
