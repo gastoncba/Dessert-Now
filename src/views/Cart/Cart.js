@@ -12,7 +12,7 @@ function Cart() {
     const {carrito, total} = useContext(CardContext); 
     
     return ( 
-            <Container>   
+            <Container sx={{pb: 3}}>   
                 <h1 className='title-cart'>Carrito de compras</h1>
                 <Item.Group divided>
                 {carrito.length > 0 ?  
