@@ -120,7 +120,6 @@ function OrderConteiner() {
     }
 
     return (
-        // <Container className='container-form'>
         <Container sx={{display: 'flex', justifyContent:'center'}}>
         <Grid xs={12} sm={8} md={8} lg={6} item>
         {!confirm ?  
@@ -171,7 +170,7 @@ function OrderConteiner() {
             <div className='text-center'>
                 <Message.Header>Orden registrada con exito!</Message.Header>
                 <p>
-                    Recibira una notificacion cuando este lista!
+                    ¡Recibirá una notificación cuando esté lista!
                 </p>
                 <div>
                     <Icon size='large' name='truck'></Icon>
@@ -180,9 +179,7 @@ function OrderConteiner() {
             </div>
         </Message>}
         </Grid>
-        </Container>
-        // </Container>
-        
+        </Container>        
     )
 }
 
