@@ -1,9 +1,10 @@
 import React, {useState, useContext} from 'react';
-import { Button, Container, Form, Message, Icon } from 'semantic-ui-react';
+import { Button, Form, Message, Icon } from 'semantic-ui-react';
 import { CardContext } from '../../context/CardContext';
 import './OrderConteiner.css'; 
 import {useFormik} from 'formik';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
+import {Grid, Container} from '@mui/material'
 
 function OrderConteiner() {
 
@@ -119,7 +120,9 @@ function OrderConteiner() {
     }
 
     return (
-        <Container className='conteiner-form'>
+        // <Container className='container-form'>
+        <Container sx={{display: 'flex', justifyContent:'center'}}>
+        <Grid xs={12} sm={8} md={8} lg={6} item>
         {!confirm ?  
             <Form className='form' onSubmit={formik.handleSubmit}>
                 <h1 className='order-title'>Orden de Pedido</h1>
@@ -176,7 +179,9 @@ function OrderConteiner() {
                 {goMain()}
             </div>
         </Message>}
+        </Grid>
         </Container>
+        // </Container>
         
     )
 }

@@ -16,7 +16,7 @@ function NavBar() {
     const {cant} = useContext(CardContext); 
     
     return (
-        <AppBar sx={{background: '#e91e63'}}>
+        <AppBar sx={{background: '#e91e63'}} position='sticky'>
           <Toolbar>
             <Box sx={{flexGrow: 1}}>
               <Link to={`/`} style={{textDecoration: 'none', color: 'white'}}>

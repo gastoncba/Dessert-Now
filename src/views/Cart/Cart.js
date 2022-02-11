@@ -1,17 +1,18 @@
 import React, {useContext} from 'react';
 import { CardContext } from '../../context/CardContext';
-import { Container, Item } from 'semantic-ui-react'
+import { Item } from 'semantic-ui-react'
 import './Cart.css';
 import ItemCart from '../ItemCart/ItemCart';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import { Container } from '@mui/material';
 
 function Cart() {
     
     const {carrito, total} = useContext(CardContext); 
     
     return ( 
-            <Container sx={{mb: 5}}>   
+            <Container>   
                 <h1 className='title-cart'>Carrito de compras</h1>
                 <Item.Group divided>
                 {carrito.length > 0 ?  

@@ -3,7 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import {Container} from 'semantic-ui-react';
+import { Container } from '@mui/material';
 import Footer from '../Footer/Footer';
 import Categories from '../Categories/Categories';
 
@@ -34,7 +34,7 @@ function ItemListContainer({match}) {
     }, [nombreCateoria]);
 
     return (
-        <div>
+        <Box>
         <Container>
             <h1 className='titulo-principal'>Bienvenidos a Dessert NOW!</h1>
             {
@@ -52,7 +52,7 @@ function ItemListContainer({match}) {
             }
         </Container>  
         {!isLoading && <Footer></Footer>}
-        </div>
+        </Box>
     )
 }
 
