@@ -2,7 +2,7 @@ import React , { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box'
-import { Container } from 'semantic-ui-react';
+import { Container } from '@mui/material';
 
 function ItemDetailContainer({match}) {
 
@@ -28,7 +28,7 @@ function ItemDetailContainer({match}) {
         <Container>
         {
             isLoading? 
-            <Box sx={{display: 'flex', justifyContent: 'center'}}>
+            <Box sx={{display: 'flex', justifyContent: 'center', mt: 10}}>
                 <CircularProgress  
                     sx={{color: '#e91e63'}}
                 >    

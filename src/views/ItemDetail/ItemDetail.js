@@ -23,7 +23,7 @@ function ItemDetail({item}) {
     }
 
     return (
-        <Container style={{marginTop: '5rem', display: 'flex', justifyContent:'center'}}>
+        <Container sx={{display: 'flex', justifyContent:'center'}}>
             <Grid xs={12} sm={8} md={8} lg={6} item>
                 <Card>
                 <Typography 
