@@ -8,7 +8,6 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import './Categories.css'
 
 function Categories() {
-    
     const [categories, setCategories] = useState([])
     const [anchorEl, setAnchorEl] = useState(null);
 
