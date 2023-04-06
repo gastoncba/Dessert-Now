@@ -20,16 +20,15 @@ function ItemListContainer({match}) {
         try {
             let data = await ProductsService.getProducts()
             if(nombreCateoria) {
-                const dataFilter = data.filter(i => i.category == nombreCateoria)
+                const dataFilter = data.filter(i => i.category === nombreCateoria)
                 setItems(dataFilter);
             } else {
                 setItems(data)
             }
+            setIsLoading(false)
         } catch (error) {
             console.log('ERROR: ', error)
-        } finally {
-            setIsLoading(false)
-        }
+        } 
     }
 
     useEffect(()=>{

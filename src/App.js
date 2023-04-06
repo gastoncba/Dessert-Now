@@ -9,6 +9,7 @@ import { Box } from "@mui/material";
 //views
 import ItemDetailContainer from "./views/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./views/Cart/Cart";
+import NotFound from "./views/NotFound/NotFound";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { CardProvider } from "./context/CardContext";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/item/:id" exact component={ItemDetailContainer} />
             <Route path="/cart" exact component={Cart} />
             <Route path="/form" exact component={OrderConteiner} />
+            <Route path="/*" component={NotFound} />
           </Switch>
         </Box>
       </Router>
