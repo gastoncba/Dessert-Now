@@ -12,7 +12,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { Snackbar, Alert } from '@mui/material';
 import CheckCircleOutlineSharpIcon from '@mui/icons-material/CheckCircleOutlineSharp';
 
-function Item({item}) {
+function Product({item}) {
 
     const {addItem, getStock} = useContext(CardContext);
     const [cant, setCant] = useState(1)
@@ -106,4 +106,4 @@ function Item({item}) {
     )
 }
 
-export default Item
+export default Product

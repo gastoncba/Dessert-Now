@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react'
 import { CardContext } from '../../context/CardContext';
-import './ItemDetail.css'
+import './ProductDetail.css'
 import ItemCount from '../../components/ItemCount/ItemCount'
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 
-function ItemDetail({item}) {
+function ProductDetail({item}) {
     
     const {addItem, getStock} = useContext(CardContext); 
     const [terminar, setTerminar] = useState(false);
@@ -68,4 +68,4 @@ function ItemDetail({item}) {
     )
 }
 
-export default ItemDetail
+export default ProductDetail
