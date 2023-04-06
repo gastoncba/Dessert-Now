@@ -13,19 +13,18 @@ function ItemListContainer({match}) {
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
 
-    const getItems = () => {
-        fetch('https://api-dessert-now.herokuapp.com/api/products')
+    const getItems = async () => {
+        fetch('https://api-products-dessert-now-production.up.railway.app/api/products')
         .then(res => res.json())
         .then(data => {
             if(nombreCateoria) {
                 const dataFilter = data.filter(i => i.category == nombreCateoria)
                 setItems(dataFilter);
-                
             } else {
                 setItems(data)
             }
             setIsLoading(false)})
-        .catch(e => console.log(e))
+        .catch(e => console.log('Error: ', e))
         
     };
 

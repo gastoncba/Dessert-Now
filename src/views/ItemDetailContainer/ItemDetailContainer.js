@@ -11,7 +11,7 @@ function ItemDetailContainer({match}) {
     const [isLoading, setIsLoading] = useState(true)
 
     const getItem = () => {
-        fetch(`https://api-dessert-now.herokuapp.com/api/products/${ID}`)
+        fetch(`https://api-products-dessert-now-production.up.railway.app/api/products/${ID}`)
         .then(res => res.json())
         .then(data => {
             setProducto(data)

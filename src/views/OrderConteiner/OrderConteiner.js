@@ -75,7 +75,7 @@ function OrderConteiner() {
         //creamos una nueva orden 
         try {
 
-            const res = await fetch('https://api-dessert-now.herokuapp.com/api/create-order', 
+            const res = await fetch('https://api-products-dessert-now-production.up.railway.app/api/create-order', 
             {
                 method: 'POST',
                 body: JSON.stringify(order),
@@ -101,7 +101,7 @@ function OrderConteiner() {
         try {
             const body = {stock: item.stock - item.quantity}
 
-            const res = await fetch(`https://api-dessert-now.herokuapp.com/api/update-stock/${item._id}`, 
+            const res = await fetch(`https://api-products-dessert-now-production.up.railway.app/api/update-stock/${item._id}`, 
             {
                 method: 'PUT',
                 body:JSON.stringify(body), 

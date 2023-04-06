@@ -21,7 +21,7 @@ function Categories() {
     };
 
     useEffect(() => {
-        fetch('https://api-dessert-now.herokuapp.com/api/categories')
+        fetch('https://api-products-dessert-now-production.up.railway.app/api/categories')
         .then(res => res.json())
         .then(data => setCategories(data))
         .catch(e => console.log(e))
