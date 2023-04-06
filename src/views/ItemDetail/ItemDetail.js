@@ -49,7 +49,7 @@ function ItemDetail({item}) {
 
                     {
                         stock > 0 ? 
-                        <ItemCount stock={stock} initial={1} onAdd={onAdd}></ItemCount>: 
+                        <ItemCount stock={stock} initial={1} onAdd={onAdd} />:
                         <h2 style={{color: 'purple'}}>Sin stock</h2>
                     } 
                     {

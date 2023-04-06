@@ -6,6 +6,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import './Categories.css'
+import { API } from '../../settings/API.setting';
 
 function Categories() {
     const [categories, setCategories] = useState([])
@@ -20,7 +21,7 @@ function Categories() {
     };
 
     useEffect(() => {
-        fetch('https://api-products-dessert-now-production.up.railway.app/api/categories')
+        fetch(`${API.URL}categories`)
         .then(res => res.json())
         .then(data => setCategories(data))
         .catch(e => console.log(e))

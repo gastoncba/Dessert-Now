@@ -23,7 +23,7 @@ function ItemCart({item}) {
             </Item.Content>
             <IconButton onClick={() => {removeItem(item)}}>
                 Eliminar
-                <DeleteIcon></DeleteIcon>
+                <DeleteIcon />
             </IconButton>
         </Item>
     )

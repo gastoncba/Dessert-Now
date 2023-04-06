@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
 import Footer from '../Footer/Footer';
 import Categories from '../Categories/Categories';
+import { API } from '../../settings/API.setting'
 
 function ItemListContainer({match}) {
 
@@ -14,7 +15,7 @@ function ItemListContainer({match}) {
     const [isLoading, setIsLoading] = useState(true)
 
     const getItems = async () => {
-        fetch('https://api-products-dessert-now-production.up.railway.app/api/products')
+        fetch(`${API.URL}products`)
         .then(res => res.json())
         .then(data => {
             if(nombreCateoria) {
@@ -39,14 +40,11 @@ function ItemListContainer({match}) {
             {
                 isLoading? 
                 <Box sx={{display: 'flex', justifyContent: 'center'}}>
-                    <CircularProgress 
-                        sx={{color: '#e91e63'}}
-                    >    
-                    </CircularProgress>
+                    <CircularProgress sx={{color: '#e91e63'}} />    
                 </Box>: 
                 <div>
                     <Categories />
-                    <ItemList items={items} category={nombreCateoria}></ItemList>
+                    <ItemList items={items} category={nombreCateoria} />
                 </div>
             }
         </Container>  

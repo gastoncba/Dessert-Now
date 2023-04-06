@@ -22,7 +22,7 @@ function NavBar() {
               <Link to={`/`} style={{textDecoration: 'none', color: 'white'}}>
                 <Box sx={{display: 'flex', alignItems: 'center'}}>
                 <IconButton color="inherit" edge='start' size='large'>
-                  <CartWidget></CartWidget>
+                  <CartWidget />
                 </IconButton>
                 <Typography variant='h5'>
                   <div className='main-title'>Dessert Now!</div>
@@ -35,7 +35,7 @@ function NavBar() {
               <Link to={`/cart`}>
                 <IconButton sx={{color: 'white'}} size='large'>
                   <Badge badgeContent={cant} color='primary'>
-                    <ShoppingCartIcon></ShoppingCartIcon>
+                    <ShoppingCartIcon />
                   </Badge>
                 </IconButton>
               </Link>

@@ -5,6 +5,7 @@ import './OrderConteiner.css';
 import {useFormik} from 'formik';
 import {useHistory} from 'react-router-dom';
 import {Grid, Container} from '@mui/material'
+import { API } from '../../settings/API.setting';
 
 function OrderConteiner() {
 
@@ -68,14 +69,12 @@ function OrderConteiner() {
         }
     }) 
     
-    // const [ID, setID] = useState(0);
     const [confirm, setConfirm] = useState(false);
 
     const addOrder = async (order) => {
-        //creamos una nueva orden 
         try {
 
-            const res = await fetch('https://api-products-dessert-now-production.up.railway.app/api/create-order', 
+            const res = await fetch(`${API.URL}create-order`, 
             {
                 method: 'POST',
                 body: JSON.stringify(order),
@@ -86,7 +85,6 @@ function OrderConteiner() {
             const response = await res.text()
             console.log(response)
         
-            // setID(response); 
             clear()
             setConfirm(true);
         } 
@@ -101,7 +99,7 @@ function OrderConteiner() {
         try {
             const body = {stock: item.stock - item.quantity}
 
-            const res = await fetch(`https://api-products-dessert-now-production.up.railway.app/api/update-stock/${item._id}`, 
+            const res = await fetch(`${API.URL}update-stock/${item._id}`, 
             {
                 method: 'PUT',
                 body:JSON.stringify(body), 

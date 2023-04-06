@@ -8,7 +8,7 @@ export default function ItemList({items}) {
                 {items.map(item => {
                     return(
                         <Grid item xs={12} sm={6} md={4} lg={4} key={item._id}>
-                            <Item item={item} key={item.id}></Item>
+                            <Item item={item} key={item.id} />
                         </Grid>
                     )
                 })}
