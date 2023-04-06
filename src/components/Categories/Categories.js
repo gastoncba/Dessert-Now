@@ -5,8 +5,9 @@ import Container from '@mui/material/Container';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
 import './Categories.css'
-import { API } from '../../settings/API.setting';
+import { CategoriesService } from '../../services/Categories.service';
 
 function Categories() {
     const [categories, setCategories] = useState([])
@@ -20,11 +21,17 @@ function Categories() {
         setAnchorEl(null);
     };
 
+    const getCategories = async (query) => {
+        try {
+            const categories = await CategoriesService.getCategories()
+            setCategories(categories)
+        } catch (error) {
+            console.log('ERROR: ', error)
+        }
+    }
+
     useEffect(() => {
-        fetch(`${API.URL}categories`)
-        .then(res => res.json())
-        .then(data => setCategories(data))
-        .catch(e => console.log(e))
+        getCategories()
     }, [])
 
     return(

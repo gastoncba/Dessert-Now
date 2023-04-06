@@ -4,9 +4,10 @@ import './ItemListContainer.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
+
 import Footer from '../Footer/Footer';
 import Categories from '../Categories/Categories';
-import { API } from '../../settings/API.setting'
+import { ProductsService } from '../../services/Products.service';
 
 function ItemListContainer({match}) {
 
@@ -14,23 +15,25 @@ function ItemListContainer({match}) {
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
 
-    const getItems = async () => {
-        fetch(`${API.URL}products`)
-        .then(res => res.json())
-        .then(data => {
+    const getProducts = async () => {
+        setIsLoading(true)
+        try {
+            let data = await ProductsService.getProducts()
             if(nombreCateoria) {
                 const dataFilter = data.filter(i => i.category == nombreCateoria)
                 setItems(dataFilter);
             } else {
                 setItems(data)
             }
-            setIsLoading(false)})
-        .catch(e => console.log('Error: ', e))
-        
-    };
+        } catch (error) {
+            console.log('ERROR: ', error)
+        } finally {
+            setIsLoading(false)
+        }
+    }
 
     useEffect(()=>{
-        getItems();
+        getProducts()
     }, [nombreCateoria]);
 
     return (

@@ -5,7 +5,8 @@ import './OrderConteiner.css';
 import {useFormik} from 'formik';
 import {useHistory} from 'react-router-dom';
 import {Grid, Container} from '@mui/material'
-import { API } from '../../settings/API.setting';
+import { OrdersServices } from '../../services/Orders.service';
+import { ProductsService } from '../../services/Products.service';
 
 function OrderConteiner() {
 
@@ -58,7 +59,6 @@ function OrderConteiner() {
             const order = {
                 buyer: values, 
                 items: carrito.map(itemCart => {
-                    updateStock(itemCart)
                     return {_id: itemCart._id, title: itemCart.name, price: itemCart.price, quantity: itemCart.quantity}
                 }),
                 date: "Una fecha",
@@ -72,49 +72,17 @@ function OrderConteiner() {
     const [confirm, setConfirm] = useState(false);
 
     const addOrder = async (order) => {
-        try {
 
-            const res = await fetch(`${API.URL}create-order`, 
-            {
-                method: 'POST',
-                body: JSON.stringify(order),
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            })
-            const response = await res.text()
-            console.log(response)
-        
+        try {
+            await OrdersServices.createOrder(order)
+            carrito.forEach(async (prod) => {
+                await ProductsService.updateProducts(prod._id, {stock: prod.stock - prod.quantity})
+            });
             clear()
-            setConfirm(true);
-        } 
-
-        catch(e) {
-            console.log(e)
-        }
-           
-    }
-
-    const updateStock = async (item) => {
-        try {
-            const body = {stock: item.stock - item.quantity}
-
-            const res = await fetch(`${API.URL}update-stock/${item._id}`, 
-            {
-                method: 'PUT',
-                body:JSON.stringify(body), 
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            })
-
-            const response = await res.text()
-            console.log(response)
-
-        }
-        catch(e) {
-            console.log(e)
-        }
+            setConfirm(true)
+        } catch (error) {
+            console.log('ERROR: ', error)
+        }  
     }
 
     return (
