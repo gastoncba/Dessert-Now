@@ -19,7 +19,7 @@ import ProductListContainer from "./components/ProductListContainer/ProductListC
 function App() {
   return (
     <CardProvider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <NavBar />
         <Box sx={{ mt: 2 }}>
           <Switch>
