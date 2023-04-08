@@ -4,7 +4,7 @@ Aplicación que permite a las personas realizar la compra de diferentes postres 
 El frontend de este proyecto se encuentra desarrollado en ReactJS, utilizado algunas librerías adicionales que se comentan más abajo en esta sección. 
 En lo que respecta a la parte backend, se encuentra desarrollado en Node.js.  
 
-## Enlace al sitio web https://dessert-now.herokuapp.com/
+## Enlace al sitio web https://dessert-now.firebaseapp.com/
 
 Para este Proyecto se utilizaron las siguientes librerías adicionales, con la idea de centrarnos en la lógica de la aplicación: 
 
